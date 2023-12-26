@@ -185,9 +185,9 @@ AnimatorStateMachine:
   - {fileID: -922845327659039805}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -2224418365884624229}
-    second: []
   - first: {fileID: -1493795875804062935}
+    second: []
+  - first: {fileID: -2224418365884624229}
     second: []
   - first: {fileID: 3464904531649708150}
     second: []
@@ -2869,7 +2869,7 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: yInput
     m_Type: 1
-    m_DefaultFloat: 1
+    m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -2883,7 +2883,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: isRunning
     m_Type: 4
