@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
     private float movementSpeed;
     private Direction direction;
 
-    public const float walkingSpeed = 3.0f;
-    public const float runningSpeed = 7.0f;
+    public const float walkingSpeed = 15.0f;
+    public const float runningSpeed = 25.0f;
 
     public enum Direction
     {
@@ -72,8 +72,8 @@ public class Player : MonoBehaviour
         isReapDown = false;
         
         MovementInput();
-        transform.Translate(xInput * movementSpeed * Time.deltaTime, yInput * movementSpeed * Time.deltaTime, 0);
-
+        //transform.Translate(xInput * movementSpeed * Time.deltaTime, yInput * movementSpeed * Time.deltaTime, 0);
+        rigidBody2D.MovePosition(transform.position + new Vector3(xInput * movementSpeed * Time.deltaTime, yInput * movementSpeed * Time.deltaTime, 0));
         EventHandler.CallActionEvent(xInput, yInput, isIdle, isWalking, isRunning, isHolding,
             idleRight, idleLeft, idleUp, idleDown,
             isToolRight, isToolLeft, isToolUp, isToolDown,

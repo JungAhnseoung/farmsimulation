@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TileMapOutline
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Instances
+  - name: Lower1
+    uniqueID: 1923652585
+    locked: 0
+  - name: Lower2
+    uniqueID: 526069431
+    locked: 0
+  - name: Lower3
+    uniqueID: 1276499281
+    locked: 0
+  - name: Surroundings1
+    uniqueID: 2963909649
+    locked: 0
+  - name: Surroundings2
+    uniqueID: 1469691943
+    locked: 0
+  - name: Surroundings3
+    uniqueID: 1917298017
+    locked: 0
+  - name: Objects
     uniqueID: 4148225139
+    locked: 0
+  - name: Upper1
+    uniqueID: 2353035873
+    locked: 0
+  - name: Upper2
+    uniqueID: 736583935
+    locked: 0
+  - name: Upper3
+    uniqueID: 2659797503
+    locked: 0
+  - name: ObjectCollision
+    uniqueID: 454989381
     locked: 0

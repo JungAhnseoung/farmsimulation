@@ -265,11 +265,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AssetsPPU: 20
   m_RefResolutionX: 600
-  m_RefResolutionY: 337
+  m_RefResolutionY: 336
   m_UpscaleRT: 0
   m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
   m_StretchFill: 1
 --- !u!1 &806072652
 GameObject:
@@ -397,6 +397,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1457743719}
   - component: {fileID: 1457743718}
+  - component: {fileID: 1457743721}
+  - component: {fileID: 1457743720}
   m_Layer: 0
   m_Name: PlayerVirtualCamera
   m_TagString: Untagged
@@ -459,6 +461,35 @@ Transform:
   - {fileID: 806072653}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1457743720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457743717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a39ee0b0b653d458508a5e9eb93f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1457743721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457743717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 0}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
 --- !u!1 &470176359465890863
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +563,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -146742157
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 1676152949, guid: e1e65223a756c4c3fb9465d7088773b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -687,8 +718,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3448670643215517320}
   - component: {fileID: 7150704142801123549}
-  - component: {fileID: 8370005112406563352}
   - component: {fileID: 6390709057706789895}
+  - component: {fileID: 8370005112406563353}
+  - component: {fileID: 8370005112406563352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -777,7 +809,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -146742157
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 1656764516, guid: 9ef58f9af8349410eb6d9f277519c9d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -881,7 +913,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -146742157
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 3
   m_Sprite: {fileID: 866121850, guid: 458adca69ee234661ac2efe246a448b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -966,7 +998,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -146742157
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 4
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1021,9 +1053,54 @@ SortingGroup:
   m_GameObject: {fileID: 7048171604201220196}
   m_Enabled: 1
   m_SortingLayerID: -146742157
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!61 &8370005112406563353
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048171604201220196}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.29765633}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.83, y: 0.70531267}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
