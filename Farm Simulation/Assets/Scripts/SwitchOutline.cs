@@ -5,10 +5,19 @@ using Cinemachine;
 
 public class SwitchOutline : MonoBehaviour
 {
-
-    void Start()
+    private void OnEnable()
     {
-        PolygonCollider2D polygonCollider2D = GameObject.FindGameObjectWithTag("TileMapOutline").GetComponent<PolygonCollider2D>();
+        EventHandler.AfterLoad += SwapOutline; 
+    }
+
+    private void OnDisable()
+    {
+        EventHandler.AfterLoad -= SwapOutline;
+    }
+
+    private void SwapOutline()
+    {
+        PolygonCollider2D polygonCollider2D = GameObject.FindGameObjectWithTag("Outline").GetComponent<PolygonCollider2D>();
 
         CinemachineConfiner cinemachineConfiner = GetComponent<CinemachineConfiner>();
 
