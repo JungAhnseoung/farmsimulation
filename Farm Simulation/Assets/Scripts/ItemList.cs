@@ -35,6 +35,6 @@ public class ItemInfo
     public int nontiledistance;
     public Sprite itemIcon;
     public Sprite itemSprite;
-
+    public int sellPrice;
 }
 

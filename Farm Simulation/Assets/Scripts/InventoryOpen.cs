@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventoryOpen : MonoBehaviour
 {
     [SerializeField] private InventoryOpenSlot[] inventoryOpenSlot = null;
     [SerializeField] private Sprite emptySprite = null;
-    private InventoryManager inventoryManager = null;
+    [SerializeField] private TextMeshProUGUI coinTextMeshPro = null;
+    private int coin = 0;
     public GameObject itemDraggedObject;
     public GameObject itemTextObject;
 
@@ -61,6 +63,43 @@ public class InventoryOpen : MonoBehaviour
                         inventoryOpenSlot[i-10].text.text = inventoryOpenSlot[i-10].itemAmount.ToString();
                     }
                 }
+            }
+
+            coin = Player.coin;
+            coinTextMeshPro.text = coin.ToString();
+        }
+    }
+
+
+    public void SetSelectedSlot()
+    {
+        if(inventoryOpenSlot.Length>0)
+        {
+            for(int i=0; i<inventoryOpenSlot.Length;i++)
+            {
+                if(inventoryOpenSlot.Length>0 && inventoryOpenSlot[i].itemInfo!=null)
+                {
+                    if (inventoryOpenSlot[i].isItemSelected)
+                    {
+                        inventoryOpenSlot[i].inventoryOpenSlotSelected.gameObject.SetActive(true);
+                        inventoryOpenSlot[i].inventoryOpenSlotSelected.gameObject.GetComponent<Animator>().SetBool("isSelected", true);
+                    }
+                }
+            }
+        }
+    }
+    public void RemoveSelectedSlot()
+    {
+        if(inventoryOpenSlot.Length>0)
+        {
+            for(int i=0; i<inventoryOpenSlot.Length;i++)
+            {
+                if (inventoryOpenSlot[i].isItemSelected)
+                {
+                    inventoryOpenSlot[i].inventoryOpenSlotSelected.gameObject.SetActive(false);
+                    inventoryOpenSlot[i].isItemSelected = false;
+                    inventoryOpenSlot[i].inventoryOpenSlotSelected.gameObject.GetComponent<Animator>().SetBool("isSelected", false);
+                 }
             }
         }
     }

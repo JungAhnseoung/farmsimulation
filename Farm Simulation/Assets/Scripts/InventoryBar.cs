@@ -63,7 +63,6 @@ public class InventoryBar : MonoBehaviour
                 }
             }
         }
-        
     }
 
     public void SetSelectedSlot()
@@ -84,6 +83,7 @@ public class InventoryBar : MonoBehaviour
             if (inventorySlot[itemIndex].isItemSelected)
             {
                 inventorySlot[itemIndex].inventorySlotSelected.gameObject.SetActive(true);
+                inventorySlot[itemIndex].inventorySlotSelected.gameObject.GetComponent<Animator>().SetBool("isSelected", true);
                 InventoryManager.SetSelectedItem(InventoryType.Player, inventorySlot[itemIndex].itemInfo.itemNo);
             }
         }
@@ -99,6 +99,7 @@ public class InventoryBar : MonoBehaviour
                 {
                     inventorySlot[i].inventorySlotSelected.gameObject.SetActive(false);
                     inventorySlot[i].isItemSelected = false;
+                    inventorySlot[i].inventorySlotSelected.gameObject.GetComponent<Animator>().SetBool("isSelected", false);
                     InventoryManager.RemoveSelectedItem(InventoryType.Player);
                 }
             }

@@ -330,8 +330,8 @@ struct MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71;
 struct NoiseSettings_tFCB86EB3704D64D89D6D747BEAE83E1757EF68F1;
 struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C;
 struct PersistentCallGroup_tB826EDF15DC80F71BCBCD8E410FD959A04C33F25;
-struct PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9;
-struct PixelPerfectCameraInternal_t3A785975106C548143FC2C057233A72DC250FEFE;
+struct PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D;
+struct PixelPerfectCameraInternal_t26209029D43C0FDDBAF225749B46C55F376D3C2E;
 struct PositionPredictor_t088813DB07D6355BB293350EB983299B866F974E;
 struct RawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179;
 struct RectMask2D_tACF92BE999C791A665BD1ADEABF5BCEB82846670;
@@ -447,7 +447,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisCinemachineVirtua
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponentsInChildren_TisCinemachineVirtualCameraBase_tAD070AA799E9D3990F0B2DA9AC5889CF138261DE_mF8DBCFF2EFB19104432E07298BB6BA688FDFDB33_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponents_TisCinemachineComponentBase_tDF1741220995A46FEA90E1FB7EA206D973D7428A_m30AF889F18F3ED6C294C66FBDEAC1971B00B8566_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Component_TryGetComponent_TisPixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9_m35B5F97B3EC65BD5C186A6FB88D3C3A3BBD93780_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Component_TryGetComponent_TisPixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D_m3AE0EFF6FA7BF24981B37F3F6852CBB90167BFEC_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_m050AC0D9D6F681C25C12FBBC7DD71F926D206ED9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_TryGetValue_mB011406E12A8B5556E7141229EF2C49A7D9F183F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_m71046919A4167DFE82A63CD88F4A9F9F32621BE7_RuntimeMethod_var;
@@ -1724,18 +1724,16 @@ struct CinemachineVirtualCameraBase_tAD070AA799E9D3990F0B2DA9AC5889CF138261DE  :
 	bool ___U3CFollowTargetChangedU3Ek__BackingField;
 	bool ___U3CLookAtTargetChangedU3Ek__BackingField;
 };
-struct PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+struct PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	int32_t ___m_AssetsPPU;
 	int32_t ___m_RefResolutionX;
 	int32_t ___m_RefResolutionY;
-	bool ___m_UpscaleRT;
-	bool ___m_PixelSnapping;
-	bool ___m_CropFrameX;
-	bool ___m_CropFrameY;
-	bool ___m_StretchFill;
+	int32_t ___m_CropFrame;
+	int32_t ___m_GridSnapping;
+	int32_t ___m_FilterMode;
 	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___m_Camera;
-	PixelPerfectCameraInternal_t3A785975106C548143FC2C057233A72DC250FEFE* ___m_Internal;
+	PixelPerfectCameraInternal_t26209029D43C0FDDBAF225749B46C55F376D3C2E* ___m_Internal;
 	bool ___m_CinemachineCompatibilityMode;
 };
 struct UIBehaviour_tB9D4295827BD2EEDEF0749200C6CA7090C742A9D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -2848,12 +2846,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR CinemachineCore_tDF9B8A03802F28C49A554F76418E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR CinemachineBrain_tA44C6B1C4F0BD2B34EFCD06EE4C4AFE46685CBE9* CinemachineCore_FindPotentialTargetBrain_mD4D554DCF27AE5BD2BAEB9D09E37BFBDD9D79B3B (CinemachineCore_tDF9B8A03802F28C49A554F76418E61DFC12AC0FD* __this, CinemachineVirtualCameraBase_tAD070AA799E9D3990F0B2DA9AC5889CF138261DE* ___0_vcam, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_x, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___1_y, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CinemachineBrain_IsLive_mC5661731D686A2BD2E926BE5F872C8F3033D3058 (CinemachineBrain_tA44C6B1C4F0BD2B34EFCD06EE4C4AFE46685CBE9* __this, RuntimeObject* ___0_vcam, bool ___1_dominantChildOnly, const RuntimeMethod* method) ;
-inline bool Component_TryGetComponent_TisPixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9_m35B5F97B3EC65BD5C186A6FB88D3C3A3BBD93780 (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9** ___0_component, const RuntimeMethod* method)
+inline bool Component_TryGetComponent_TisPixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D_m3AE0EFF6FA7BF24981B37F3F6852CBB90167BFEC (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D** ___0_component, const RuntimeMethod* method)
 {
-	return ((  bool (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9**, const RuntimeMethod*))Component_TryGetComponent_TisRuntimeObject_m69D4ED21F14D49D805A2337F4332934CDA07DEDB_gshared)(__this, ___0_component, method);
+	return ((  bool (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D**, const RuntimeMethod*))Component_TryGetComponent_TisRuntimeObject_m69D4ED21F14D49D805A2337F4332934CDA07DEDB_gshared)(__this, ___0_component, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Behaviour_get_isActiveAndEnabled_mEB4ECCE9761A7016BC619557CEFEA1A30D3BF28A (Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PixelPerfectCamera_CorrectCinemachineOrthoSize_m954071ACDDE4E77D706BE79EB8C2562BE55CADCD (PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9* __this, float ___0_targetOrthoSize, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float PixelPerfectCamera_CorrectCinemachineOrthoSize_m0187F5BED8A6B1748C0CCA6944D9332AEC6B0C84 (PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D* __this, float ___0_targetOrthoSize, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CinemachineExtension__ctor_m8955F80D4A62DE7C3DA510CFECEF722346241C94 (CinemachineExtension_t147DA9A9CF04E95E661DF21504144EDBBDC0DD73* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* __this, float ___0_x, float ___1_y, float ___2_z, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Appearance__ctor_m3600590C110F6BC2BBA3F48A4334B8A38A030796 (Appearance_t598AE4F607DDAB13B808E1D4ECEBE53E335967F8* __this, const RuntimeMethod* method) ;
@@ -3625,12 +3623,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CinemachinePixelPerfect_PostPipelineStag
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CinemachineCore_tDF9B8A03802F28C49A554F76418E61DFC12AC0FD_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_TryGetComponent_TisPixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9_m35B5F97B3EC65BD5C186A6FB88D3C3A3BBD93780_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_TryGetComponent_TisPixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D_m3AE0EFF6FA7BF24981B37F3F6852CBB90167BFEC_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
 	CinemachineBrain_tA44C6B1C4F0BD2B34EFCD06EE4C4AFE46685CBE9* V_0 = NULL;
-	PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9* V_1 = NULL;
+	PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D* V_1 = NULL;
 	LensSettings_t6DAB2F204EC22686BF4397E0871B4875414A84FE V_2;
 	memset((&V_2), 0, sizeof(V_2));
 	{
@@ -3685,8 +3683,8 @@ IL_0024:
 		CinemachineBrain_tA44C6B1C4F0BD2B34EFCD06EE4C4AFE46685CBE9* L_9 = V_0;
 		NullCheck(L_9);
 		bool L_10;
-		L_10 = Component_TryGetComponent_TisPixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9_m35B5F97B3EC65BD5C186A6FB88D3C3A3BBD93780(L_9, (&V_1), Component_TryGetComponent_TisPixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9_m35B5F97B3EC65BD5C186A6FB88D3C3A3BBD93780_RuntimeMethod_var);
-		PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9* L_11 = V_1;
+		L_10 = Component_TryGetComponent_TisPixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D_m3AE0EFF6FA7BF24981B37F3F6852CBB90167BFEC(L_9, (&V_1), Component_TryGetComponent_TisPixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D_m3AE0EFF6FA7BF24981B37F3F6852CBB90167BFEC_RuntimeMethod_var);
+		PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D* L_11 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_12;
 		L_12 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_11, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -3696,7 +3694,7 @@ IL_0024:
 		}
 	}
 	{
-		PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9* L_13 = V_1;
+		PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D* L_13 = V_1;
 		NullCheck(L_13);
 		bool L_14;
 		L_14 = Behaviour_get_isActiveAndEnabled_mEB4ECCE9761A7016BC619557CEFEA1A30D3BF28A(L_13, NULL);
@@ -3716,12 +3714,12 @@ IL_003f:
 		CameraState_tBC57F8D313D0D19718B24CFBD690C089C2140156* L_15 = ___2_state;
 		LensSettings_t6DAB2F204EC22686BF4397E0871B4875414A84FE L_16 = L_15->___Lens;
 		V_2 = L_16;
-		PixelPerfectCamera_t7B0849F4AB5E6399719BE7C3B330BCBBA3AAF7A9* L_17 = V_1;
+		PixelPerfectCamera_t6B1177807F330CBB78E8868004F5A78BDE04EB9D* L_17 = V_1;
 		LensSettings_t6DAB2F204EC22686BF4397E0871B4875414A84FE L_18 = V_2;
 		float L_19 = L_18.___OrthographicSize;
 		NullCheck(L_17);
 		float L_20;
-		L_20 = PixelPerfectCamera_CorrectCinemachineOrthoSize_m954071ACDDE4E77D706BE79EB8C2562BE55CADCD(L_17, L_19, NULL);
+		L_20 = PixelPerfectCamera_CorrectCinemachineOrthoSize_m0187F5BED8A6B1748C0CCA6944D9332AEC6B0C84(L_17, L_19, NULL);
 		(&V_2)->___OrthographicSize = L_20;
 		CameraState_tBC57F8D313D0D19718B24CFBD690C089C2140156* L_21 = ___2_state;
 		LensSettings_t6DAB2F204EC22686BF4397E0871B4875414A84FE L_22 = V_2;
@@ -7710,7 +7708,7 @@ IL_0063:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_52 = __this->___m_Image;
 		NullCheck(L_52);
 		int32_t L_53;
-		L_53 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_52);
+		L_53 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_52);
 		if ((((int32_t)L_53) <= ((int32_t)0)))
 		{
 			goto IL_022c;
@@ -7720,7 +7718,7 @@ IL_0063:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_54 = __this->___m_Image;
 		NullCheck(L_54);
 		int32_t L_55;
-		L_55 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_54);
+		L_55 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_54);
 		if ((((int32_t)L_55) <= ((int32_t)0)))
 		{
 			goto IL_022c;
@@ -7748,13 +7746,13 @@ IL_0063:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_59 = __this->___m_Image;
 		NullCheck(L_59);
 		int32_t L_60;
-		L_60 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_59);
+		L_60 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_59);
 		float L_61;
 		L_61 = Rect_get_width_m620D67551372073C9C32C4C4624C2A5713F7F9A9_inline((&V_0), NULL);
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_62 = __this->___m_Image;
 		NullCheck(L_62);
 		int32_t L_63;
-		L_63 = VirtualFuncInvoker0< int32_t >::Invoke(6, L_62);
+		L_63 = VirtualFuncInvoker0< int32_t >::Invoke(7, L_62);
 		V_5 = ((float)(((float)il2cpp_codegen_multiply(L_58, ((float)L_60)))/((float)il2cpp_codegen_multiply(L_61, ((float)L_63)))));
 		int32_t L_64 = __this->___m_Aspect;
 		V_6 = L_64;

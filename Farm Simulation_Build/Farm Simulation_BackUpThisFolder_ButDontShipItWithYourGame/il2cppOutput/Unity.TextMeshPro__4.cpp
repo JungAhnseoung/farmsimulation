@@ -19848,7 +19848,7 @@ IL_0343:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_172 = L_171->___spriteSheet;
 		NullCheck(L_172);
 		int32_t L_173;
-		L_173 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_172);
+		L_173 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_172);
 		int32_t L_174;
 		L_174 = GlyphRect_get_y_mE31390BB3185EEA82DD16EA41E208F6A0397E3EA((&V_5), NULL);
 		TMP_SpriteAsset_t81F779E6F705CE190DC0D1F93A954CB8B1774B39* L_175 = __this->___m_currentSpriteAsset;
@@ -19856,7 +19856,7 @@ IL_0343:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_176 = L_175->___spriteSheet;
 		NullCheck(L_176);
 		int32_t L_177;
-		L_177 = VirtualFuncInvoker0< int32_t >::Invoke(6, L_176);
+		L_177 = VirtualFuncInvoker0< int32_t >::Invoke(7, L_176);
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&V_6), ((float)(((float)L_170)/((float)L_173))), ((float)(((float)L_174)/((float)L_177))), NULL);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_178 = V_6;
 		float L_179 = L_178.___x;
@@ -19869,7 +19869,7 @@ IL_0343:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_183 = L_182->___spriteSheet;
 		NullCheck(L_183);
 		int32_t L_184;
-		L_184 = VirtualFuncInvoker0< int32_t >::Invoke(6, L_183);
+		L_184 = VirtualFuncInvoker0< int32_t >::Invoke(7, L_183);
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&V_7), L_179, ((float)(((float)((int32_t)il2cpp_codegen_add(L_180, L_181)))/((float)L_184))), NULL);
 		int32_t L_185;
 		L_185 = GlyphRect_get_x_m453EECC6C6F08602B1F74C5E1D8EE1163236A898((&V_5), NULL);
@@ -19880,7 +19880,7 @@ IL_0343:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_188 = L_187->___spriteSheet;
 		NullCheck(L_188);
 		int32_t L_189;
-		L_189 = VirtualFuncInvoker0< int32_t >::Invoke(4, L_188);
+		L_189 = VirtualFuncInvoker0< int32_t >::Invoke(5, L_188);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_190 = V_7;
 		float L_191 = L_190.___y;
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&V_8), ((float)(((float)((int32_t)il2cpp_codegen_add(L_185, L_186)))/((float)L_189))), L_191, NULL);

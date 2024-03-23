@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7545308121054134645}
   - component: {fileID: 5582009545312389786}
   - component: {fileID: 850398836743833561}
+  - component: {fileID: 2073769002790500757}
   m_Layer: 0
   m_Name: InventorySelected
   m_TagString: Untagged
@@ -75,6 +76,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2073769002790500757
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981416425177702384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10760eb3eaa6cd349ae9ab1f6ea70cc8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3765285864591653916
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +203,7 @@ MonoBehaviour:
   TextMeshProUGUI: {fileID: 2160648379906186809}
   inventorySlotSelected: {fileID: 850398836743833561}
   inventorySlotIcon: {fileID: 3270947257661687885}
+  itemDragged: {fileID: 0}
   itemInfo:
     itemType: 0
     itemNo: 0
@@ -190,6 +213,8 @@ MonoBehaviour:
     isCarriable: 0
     isEdible: 0
     isDroppable: 0
+    distance: 0
+    nontiledistance: 0
     itemIcon: {fileID: 0}
     itemSprite: {fileID: 0}
   itemCount: 0

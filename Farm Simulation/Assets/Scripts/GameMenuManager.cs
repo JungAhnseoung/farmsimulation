@@ -5,33 +5,22 @@ using UnityEngine;
 public class GameMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject editableGameMenu = null;
-    [SerializeField] private InventoryBar inventoryBar = null;
+    [SerializeField] private InventoryBar editableInventoryBar = null;
 
     private static GameObject gameMenu = null;
+    private static InventoryBar inventoryBar = null;
+
     private static bool isGameMenuOpen = false;
     public static bool GameMenuOpen { get => isGameMenuOpen; set => isGameMenuOpen = value; }
 
     private void Awake()
     {
        gameMenu = editableGameMenu;
+       inventoryBar = editableInventoryBar;
        gameMenu.SetActive(false);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(GameMenuOpen)
-            {
-                CloseGameMenu();
-            }
-            else
-            {
-                OpenGameMenu();
-            }
-        }
-    }
 
-    public void OpenGameMenu()
+    public static void OpenGameMenu()
     {
         inventoryBar.RemoveItemDragged();
         inventoryBar.RemoveSelectedItem();

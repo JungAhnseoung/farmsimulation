@@ -5,20 +5,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryOpenSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryOpenSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private InventoryOpen inventoryOpen = null;
+    [SerializeField] private InventoryBar inventoryBar = null;
     [SerializeField] private GameObject itemTextObject = null;
     [SerializeField] public int slotIndex;
 
     public ItemInfo itemInfo;
     public int itemAmount;
+    public Image inventoryOpenSlotSelected;
 
     public GameObject itemDragged;
     private Canvas canvasGroup;
 
     public Image inventoryOpenImage;
     public TextMeshProUGUI text;
+
+    public bool isItemSelected;
 
     private void Awake()
     {
@@ -44,6 +48,47 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
             {
                 inventoryOpen.itemTextObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1f);
                 inventoryOpen.itemTextObject.transform.position = new Vector3(transform.position.x, transform.position.y - 50f, transform.position.z);
+            }
+        }
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            Player.NotHoldingItem();
+            if (isItemSelected)
+            {
+                inventoryOpen.RemoveSelectedSlot();
+                isItemSelected = false;
+            }
+            else
+            {
+                if(itemAmount>0)
+                {
+                    inventoryOpen.RemoveSelectedSlot();
+                    inventoryBar.RemoveSelectedSlot();
+                    isItemSelected = true;
+                    inventoryOpen.SetSelectedSlot();
+                }
+            }
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (itemAmount > 0)
+            {
+                inventoryBar.RemoveSelectedSlot();
+                inventoryOpen.RemoveSelectedSlot();
+                isItemSelected = true;
+                inventoryBar.SetSelectedSlot();
+                InventoryManager.SetSelectedItem(InventoryType.Player, itemInfo.itemNo);
+            }
+            if (itemInfo != null && itemInfo.itemType != ItemType.Tool) // && chest open
+            {
+                int itemNo = itemInfo.itemNo;
+
+                InventoryManager.RemoveItemFromInventory(InventoryType.Player, itemNo);
+                InventoryManager.AddItemInInventory(InventoryType.Chest, itemNo);
             }
         }
     }
@@ -73,7 +118,6 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
         if(itemDragged != null)
         {
             Destroy(itemDragged);
-            //if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerCurrentRaycast.gameObject.GetComponent<InventoryOpenSlot>() != null)
             if (eventData.pointerCurrentRaycast.gameObject != null)
             {
                 if (eventData.pointerCurrentRaycast.gameObject.GetComponent<InventoryOpenSlot>() != null) 
@@ -84,8 +128,11 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 {
                     InventoryManager.SwapItemInInventory(InventoryType.Player, slotIndex, eventData.pointerCurrentRaycast.gameObject.GetComponent<InventorySlot>().slotIndex);
                 }
+                inventoryOpen.RemoveSelectedSlot();
+                isItemSelected = false;
                 inventoryOpen.RemoveItemTextObject();
             }
         }
     }
+
 }

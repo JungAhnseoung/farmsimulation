@@ -15,6 +15,8 @@ public static class EventHandler
 
     public static event Action<InventoryType, List<InventoryItem>> InventoryEvent;
 
+    public static event Action<InventoryType, List<InventoryItem>> ChestEvent;
+
     public static event Action<Season, int, int, string, int, int, int> SeasonPass;
 
     public static event Action<Season, int, int, string, int, int, int> YearPass;
@@ -40,7 +42,7 @@ public static class EventHandler
     public static event Action<Vector3, FarmEffectType> FarmEffect;
 
     public static event Action GeneratePlant;
-
+    
     public static void CallSeasonPass(Season season, int year, int day, string weekDay, int hour, int min, int sec)
     {
         if (SeasonPass != null) SeasonPass(season, year, day, weekDay, hour, min, sec);
@@ -86,6 +88,11 @@ public static class EventHandler
     public static void CallInventoryEvent(InventoryType inventoryType, List<InventoryItem> inventoryItemList)
     {
         if(InventoryEvent != null) InventoryEvent(inventoryType, inventoryItemList);
+    }
+
+    public static void CallChestEvent(InventoryType inventoryType, List<InventoryItem> inventoryItemList)
+    {
+        if (ChestEvent != null) ChestEvent(inventoryType, inventoryItemList);
     }
 
     public static void CallActionEvent(float xInput, float yInput, bool isIdle, bool isWalking, bool isRunning, bool isHolding,

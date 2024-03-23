@@ -24,6 +24,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     private Indicator indicator;
 
     [SerializeField] private InventoryBar inventoryBar = null;
+    [SerializeField] private InventoryOpen inventoryOpen = null;
     [SerializeField] private GameObject itemPrefab = null;
     [SerializeField] public int slotIndex;
     [SerializeField] private GameObject inventoryItemDescription = null;
@@ -81,6 +82,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
                 if (itemCount > 0)
                 {
                     inventoryBar.RemoveSelectedSlot();
+                    inventoryOpen.RemoveSelectedSlot();
                     isItemSelected = true;
                     inventoryBar.SetSelectedSlot();
 
@@ -89,9 +91,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
                     if (itemInfo.distance > 0f) tileIndicator.EnableIndicator();
                     else tileIndicator.DisableIndicator();
-
-                    //if(itemInfo.itemName == "Scythe") 
-
                     if (itemInfo.nontiledistance > 0f) indicator.EnableIndicator();
                     else indicator.DisableIndicator();
                     tileIndicator.SelectedItem = itemInfo.itemType;
@@ -107,6 +106,18 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
                         Player.NotHoldingItem();
                     }
                 }
+            }
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (itemInfo != null && itemInfo.itemType != ItemType.Tool && Chest.ChestOpen)
+            {
+                int itemNo = itemInfo.itemNo;
+
+                InventoryManager.RemoveItemFromInventory(InventoryType.Player, itemNo);
+                if (InventoryManager.SearchForItem(InventoryType.Player, itemNo) == -1) RemoveSelectedItem();
+                InventoryManager.AddItemInInventory(InventoryType.Chest, itemNo);
             }
         }
     }
@@ -134,8 +145,6 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
             
             if (itemInfo.distance > 0f) tileIndicator.EnableIndicator();
             else tileIndicator.DisableIndicator();
-
-            //if (itemInfo.itemName == "Scythe") 
             
             if(itemInfo.nontiledistance > 0f) indicator.EnableIndicator();
             else indicator.DisableIndicator();

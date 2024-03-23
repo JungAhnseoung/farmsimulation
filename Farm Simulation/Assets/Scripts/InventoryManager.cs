@@ -23,11 +23,13 @@ public class InventoryManager : MonoBehaviour, Save
 
     private void OnEnable()
     {
+        EventHandler.DayPass += EmptyChest;
         Register();
     }
 
     private void OnDisable()
     {
+        EventHandler.DayPass -= EmptyChest;
         Unregister();
     }
 
@@ -43,6 +45,7 @@ public class InventoryManager : MonoBehaviour, Save
         }
         inventoryListCapacity = new int[(int)InventoryType.Count];
         inventoryListCapacity[(int)InventoryType.Player] = Inventory.inventoryCapacity;
+        inventoryListCapacity[(int)InventoryType.Chest] = Inventory.inventoryCapacity;
 
         itemDict = new Dictionary<int, ItemInfo>();
         foreach (ItemInfo itemInfo in ItemList.itemInfo) 
@@ -154,6 +157,7 @@ public class InventoryManager : MonoBehaviour, Save
         }
 
         EventHandler.CallInventoryEvent(inventoryType, inventoryItemList[(int)inventoryType]);
+        EventHandler.CallChestEvent(inventoryType, inventoryItemList[(int)inventoryType]);
     }
 
     public static void RemoveItemFromInventory(InventoryType inventoryType, int itemNo)
@@ -183,6 +187,24 @@ public class InventoryManager : MonoBehaviour, Save
             }
         }
         EventHandler.CallInventoryEvent(inventoryType, inventoryItemList[(int)inventoryType]);
+        EventHandler.CallChestEvent(inventoryType, inventoryItemList[(int)inventoryType]);
+    }
+
+
+    public static void EmptyInventory(InventoryType inventoryType)
+    {
+        List<InventoryItem> inventoryItems = inventoryItemList[(int)inventoryType];
+        inventoryItems.Clear();
+        EventHandler.CallChestEvent(inventoryType, inventoryItemList[(int)inventoryType]);
+    }
+
+    private void EmptyChest(Season season, int year, int day, string weekDay, int hour, int min, int sec)
+    {
+        if (InventoryManager.inventoryItemList[(int)InventoryType.Chest].Count > 0)
+        {
+            Player.coin += ChestUI.coinTotal;
+            InventoryManager.EmptyInventory(InventoryType.Chest);
+        }
     }
 
 
@@ -190,7 +212,6 @@ public class InventoryManager : MonoBehaviour, Save
     {
         if (itemA < inventoryItemList[(int)inventoryType].Count && itemB < inventoryItemList[(int)inventoryType].Count && itemA >= 0 && itemB >= 0 && itemA != itemB)
         {
-            Debug.Log(inventoryItemList[(int)inventoryType].Count);
             InventoryItem inventoryItemA = inventoryItemList[(int)inventoryType][itemA];
             InventoryItem inventoryItemB = inventoryItemList[(int)inventoryType][itemB];
 
@@ -233,6 +254,7 @@ public class InventoryManager : MonoBehaviour, Save
                     for(int i=0; i<(int)InventoryType.Count; i++)
                     {
                         EventHandler.CallInventoryEvent((InventoryType)i, inventoryItemList[i]);
+                        EventHandler.CallChestEvent((InventoryType)i, inventoryItemList[i]);
                     }
 
                     Player.NotHoldingItem();

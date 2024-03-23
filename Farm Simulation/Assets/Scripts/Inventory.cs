@@ -6,6 +6,7 @@ public enum InventoryType
 {
     Player,
     Chest,
+    Shop,
     Count
 }
 

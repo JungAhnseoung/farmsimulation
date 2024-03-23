@@ -113,7 +113,7 @@ public class TimeManager : MonoBehaviour, Save
                                 case 6:
                                     weekDay = "Sat";
                                     break;
-                                case 7:
+                                case 0:
                                     weekDay = "Sun";
                                     break;
                                 default:
@@ -126,8 +126,6 @@ public class TimeManager : MonoBehaviour, Save
                         EventHandler.CallHourPass(season, year, day, weekDay, hour, min, sec);
                     }
                     EventHandler.CallMinutePass(season, year, day, weekDay, hour, min, sec);
-
-                    //Debug.Log("year :" + year + "   season :" + season + "    day :" + day + "    hour :" + hour + "  min :" + min);
                 }
             }
         }
@@ -191,7 +189,7 @@ public class TimeManager : MonoBehaviour, Save
                             case 6:
                                 weekDay = "Sat";
                                 break;
-                            case 7:
+                            case 0:
                                 weekDay = "Sun";
                                 break;
                             default:
@@ -204,8 +202,6 @@ public class TimeManager : MonoBehaviour, Save
                     EventHandler.CallHourPass(season, year, day, weekDay, hour, min, sec);
                 }
                 EventHandler.CallMinutePass(season, year, day, weekDay, hour, min, sec);
-
-                //Debug.Log("year :" + year + "   season :" + season + "    day :" + day + "    hour :" + hour + "  min :" + min);
             }
         }
     
@@ -347,5 +343,85 @@ public class TimeManager : MonoBehaviour, Save
         saveScene.intData.Add("sec", sec);
         SaveObject.scene.Add("Base", saveScene);
         return SaveObject;
+    }
+
+    public static Season GetSeason()
+    {
+        return season;
+    }
+
+    public static int GetYear()
+    {
+        return year;
+    }
+
+    public static String GetWeekDay()
+    {
+        return weekDay;
+    }
+
+
+    public static TimeSpan GetTime()
+    {
+        return new TimeSpan(day, hour, min, sec);
+    }
+
+    public static void PassDay()
+    {
+        day++;
+        hour = 6;
+        min = 0;
+        sec = 0;
+        EventHandler.CallMinutePass(season, year, day, weekDay, hour, min, sec);
+
+        if (day > 30)
+        {
+            day = 1;
+            int gameSeason = (int)season;
+            gameSeason++;
+
+            season = (Season)gameSeason;
+            if (gameSeason > 3)
+            {
+                gameSeason = 0;
+                season = (Season)gameSeason;
+                year++;
+
+                EventHandler.CallYearPass(season, year, day, weekDay, hour, min, sec);
+            }
+            EventHandler.CallSeasonPass(season, year, day, weekDay, hour, min, sec);
+        }
+        int days = (((int)season) * 30) + day;
+        int gameWeekDay = days % 7;
+
+        switch (gameWeekDay)
+        {
+            case 1:
+                weekDay = "Mon";
+                break;
+            case 2:
+                weekDay = "Tue";
+                break;
+            case 3:
+                weekDay = "Wed";
+                break;
+            case 4:
+                weekDay = "Thu";
+                break;
+            case 5:
+                weekDay = "Fri";
+                break;
+            case 6:
+                weekDay = "Sat";
+                break;
+            case 0:
+                weekDay = "Sun";
+                break;
+            default:
+                weekDay = "";
+                break;
+        }
+
+        EventHandler.CallDayPass(season, year, day, weekDay, hour, min, sec);
     }
 }

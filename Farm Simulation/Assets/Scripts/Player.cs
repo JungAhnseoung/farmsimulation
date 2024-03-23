@@ -76,7 +76,9 @@ public class Player : MonoBehaviour, Save
     private Indicator indicator;
 
     private Camera camera;
-    
+
+    public static int coin = 0;
+
     private void OnEnable()
     {
         Register();
@@ -328,6 +330,7 @@ public class Player : MonoBehaviour, Save
         {
             TimeManager.TestDay();
         }
+
     }
 
     private Vector3Int PlayerDirection(Vector3 indicatorLocation, Vector3 playerLocation)
@@ -621,6 +624,7 @@ public class Player : MonoBehaviour, Save
                         }
                     }
                 }
+                if (saveScene.intData != null && saveScene.intData.TryGetValue("coin", out int pCoin)) coin = pCoin;
             }
         }
     }
@@ -631,11 +635,13 @@ public class Player : MonoBehaviour, Save
         SaveScene saveScene = new SaveScene();
         saveScene.vector3Data = new Dictionary<string, SerializeVector3>();
         saveScene.stringData = new Dictionary<string, string>();
+        saveScene.intData = new Dictionary<string, int>();
         SerializeVector3 serializeVector3 = new SerializeVector3(transform.position.x, transform.position.y, transform.position.z);
         
         saveScene.vector3Data.Add("location", serializeVector3);
         saveScene.stringData.Add("scene", SceneManager.GetActiveScene().name);
         saveScene.stringData.Add("direction", direction.ToString());
+        saveScene.intData.Add("coin", coin);
         SaveObject.scene.Add("Base", saveScene);
 
         return SaveObject;

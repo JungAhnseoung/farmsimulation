@@ -72,7 +72,8 @@ public class TileManager : MonoBehaviour, Save
                         KeyValuePair<string, TileAttributeDetail> item = saveScene.tileAttributeDetailData.ElementAt(i);
                         TileAttributeDetail tileAttributeDetail = item.Value;
 
-                        if (tileAttributeDetail.age > -1) tileAttributeDetail.age += 1;
+                        if (tileAttributeDetail.age > -1 && tileAttributeDetail.ageDig == -1) tileAttributeDetail.age += 1;
+                        else if (tileAttributeDetail.age > -1 && tileAttributeDetail.ageDig > -1 && tileAttributeDetail.ageWater > -1) tileAttributeDetail.age += 1;
                         if (tileAttributeDetail.ageWater > -1) tileAttributeDetail.ageWater = -1;
                         SetTileAttributeDetail(tileAttributeDetail.x, tileAttributeDetail.y, tileAttributeDetail, saveScene.tileAttributeDetailData);
                     }
@@ -85,7 +86,6 @@ public class TileManager : MonoBehaviour, Save
     {
         saveID = GetComponent<GUIDGenerator>().GUID;
         saveObject = new SaveObject();
-        //grid = editableGrid;
         digTile = editableDigTile;
         waterTile = editableWaterTile;
         plantList = editablePlantList;

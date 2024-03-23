@@ -24,7 +24,10 @@ extern void VFXEventAttribute_Dispose_m172293D888316328F19F4C7E03D50CD178E0EB36 
 extern void VFXEventAttribute_Internal_Destroy_m2D0838414E77C04FBD44CEB8B7F825C0C4EBC30E (void);
 extern void VFXExpressionValues__ctor_mB5923888F1BBEEE55955E24514A69629D932DDD0 (void);
 extern void VFXExpressionValues_CreateExpressionValuesWrapper_m94D1AD2FD2FF7D005B0AEF2D22333D321631AACE (void);
+extern void VFXManager_ProcessCameraCommand_m58F378DDAE272DC813C6E8D7C8E4926D709A0BA1 (void);
+extern void VFXManager_Internal_ProcessCameraCommand_mD1E50A787623A201B74EA5C6B68B02A35CA1DFC9 (void);
 extern void VFXManager__cctor_mAD02D20E3B33A9A3C291A9C79D3B243AA54CADC0 (void);
+extern void VFXManager_Internal_ProcessCameraCommand_Injected_m6967D890450FC77F1D2E9EF55421A1A515268445 (void);
 extern void VFXSpawnerCallbacks__ctor_mF8C2AB380D2D25B5309E22DA5A0F48ECE40BAAEB (void);
 extern void VFXSpawnerState__ctor_mDF51A64C76B610ED8B1BF46C3CB6F8224B246392 (void);
 extern void VFXSpawnerState_CreateSpawnerStateWrapper_mDB5B5B796BD1A60A20A1EDC2F959490804D0E0EA (void);
@@ -42,7 +45,7 @@ extern void VisualEffect_get_visualEffectAsset_m301FCE98B138CAB2E16B46CE365538EC
 extern void VisualEffect_CreateVFXEventAttribute_mC4611FC064DF24028BA3E60D3D450B95541BEB6E (void);
 extern void VisualEffect_InvokeGetCachedEventAttributeForOutputEvent_Internal_mB2B1867606653A162B31F890AFFAFF2D4569904E (void);
 extern void VisualEffect_InvokeOutputEventReceived_Internal_m8F6FCF09BC8F3774FE1DD70A296182909A9CBCA7 (void);
-static Il2CppMethodPointer s_methodPointers[33] = 
+static Il2CppMethodPointer s_methodPointers[36] = 
 {
 	VFXEventAttribute__ctor_m08E26E4F79DA1062FC43501FDFE00B9EF3ED3AE1,
 	VFXEventAttribute_CreateEventAttributeWrapper_m8875BE7EF5B016C001E79C5CC228969A98EA846A,
@@ -56,7 +59,10 @@ static Il2CppMethodPointer s_methodPointers[33] =
 	VFXEventAttribute_Internal_Destroy_m2D0838414E77C04FBD44CEB8B7F825C0C4EBC30E,
 	VFXExpressionValues__ctor_mB5923888F1BBEEE55955E24514A69629D932DDD0,
 	VFXExpressionValues_CreateExpressionValuesWrapper_m94D1AD2FD2FF7D005B0AEF2D22333D321631AACE,
+	VFXManager_ProcessCameraCommand_m58F378DDAE272DC813C6E8D7C8E4926D709A0BA1,
+	VFXManager_Internal_ProcessCameraCommand_mD1E50A787623A201B74EA5C6B68B02A35CA1DFC9,
 	VFXManager__cctor_mAD02D20E3B33A9A3C291A9C79D3B243AA54CADC0,
+	VFXManager_Internal_ProcessCameraCommand_Injected_m6967D890450FC77F1D2E9EF55421A1A515268445,
 	NULL,
 	NULL,
 	NULL,
@@ -81,49 +87,52 @@ static Il2CppMethodPointer s_methodPointers[33] =
 extern void VFXOutputEventArgs__ctor_m4A6030F4BF7E27F5F682E0FC4211F53DF866ED56_AdjustorThunk (void);
 static Il2CppTokenAdjustorThunkPair s_adjustorThunks[1] = 
 {
-	{ 0x0600001D, VFXOutputEventArgs__ctor_m4A6030F4BF7E27F5F682E0FC4211F53DF866ED56_AdjustorThunk },
+	{ 0x06000020, VFXOutputEventArgs__ctor_m4A6030F4BF7E27F5F682E0FC4211F53DF866ED56_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[33] = 
+static const int32_t s_InvokerIndices[36] = 
 {
-	1272,
-	11399,
-	4666,
-	11394,
-	10295,
-	4694,
-	5948,
-	5948,
-	5948,
-	10585,
-	5948,
-	10294,
-	11435,
+	1630,
+	14236,
+	6020,
+	14231,
+	13101,
+	6053,
+	7713,
+	7713,
+	7713,
+	13410,
+	7713,
+	13100,
+	9663,
+	9664,
+	14284,
+	9647,
 	0,
 	0,
 	0,
-	5948,
-	2481,
-	11399,
-	5948,
-	2482,
-	5948,
-	5948,
-	5948,
-	10585,
-	5948,
-	5948,
-	11435,
-	2317,
-	5835,
-	5835,
-	10295,
-	9203,
+	7713,
+	3268,
+	14236,
+	7713,
+	3270,
+	7713,
+	7713,
+	7713,
+	13410,
+	7713,
+	7713,
+	14284,
+	3045,
+	7572,
+	7572,
+	13101,
+	11933,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_VFXModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_VFXModule_CodeGenModule = 
 {
 	"UnityEngine.VFXModule.dll",
-	33,
+	36,
 	s_methodPointers,
 	1,
 	s_adjustorThunks,
