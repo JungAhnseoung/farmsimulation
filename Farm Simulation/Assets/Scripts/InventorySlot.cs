@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using UnityEngine.Rendering.Universal;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -29,6 +30,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     [SerializeField] public int slotIndex;
     [SerializeField] private GameObject inventoryItemDescription = null;
 
+    [SerializeField] private GameObject eatCanvas = null;
 
     public bool isItemSelected;
 
@@ -67,6 +69,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
             inventoryBar.inventoryItemDescription.GetComponent<InventoryItemDescription>().SetDescriptionText(itemInfo.itemName, itemInfo.itemType.ToString(), itemInfo.itemDescription);
             inventoryBar.inventoryItemDescription.GetComponent<RectTransform>().pivot = new Vector2(1f, 0f);
             inventoryBar.inventoryItemDescription.transform.position = new Vector3(transform.position.x, transform.position.y + 15f, transform.position.z);
+            
         }
     }
     public void OnPointerClick(PointerEventData eventData)
@@ -75,6 +78,12 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         {
             if (isItemSelected == true)
             {
+                if(itemInfo.isEdible)
+                {
+                    eatCanvas.SetActive(true);
+                    EatUI.eatText.text = ("Do you want to eat " + itemInfo.itemName + "?");
+                    InventoryManager.RemoveItemFromInventory(InventoryType.Player, itemInfo.itemNo);
+                }
                 RemoveSelectedItem();
             }
             else
@@ -133,9 +142,9 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         {
             Player.DisableInput();
             itemDragged = Instantiate(inventoryBar.itemDragged, inventoryBar.transform);
+            itemDragged.transform.SetParent(canvasGroup.transform, false);
             Image imageDragged = itemDragged.GetComponentInChildren<Image>();
             imageDragged.sprite = inventorySlotIcon.sprite;
-
             inventoryBar.RemoveSelectedSlot();
             isItemSelected = true;
             inventoryBar.SetSelectedSlot();
@@ -166,9 +175,11 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (itemDragged != null) itemDragged.transform.position = Input.mousePosition;
+        if (itemDragged != null)
+        {
+            itemDragged.transform.position = Input.mousePosition;
+        }
     }
-
     public void OnEndDrag(PointerEventData eventData)
     {
         if (itemDragged != null)
@@ -182,7 +193,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
                     InventoryManager.SwapItemInInventory(InventoryType.Player, slotIndex, eventData.pointerCurrentRaycast.gameObject.GetComponent<InventorySlot>().slotIndex);
                 }
                 else if(eventData.pointerCurrentRaycast.gameObject.GetComponent<InventoryOpenSlot>() != null)
-                {
+                { 
                     InventoryManager.SwapItemInInventory(InventoryType.Player, slotIndex, eventData.pointerCurrentRaycast.gameObject.GetComponent<InventoryOpenSlot>().slotIndex);
                 }
                 if (inventoryBar.inventoryItemDescription != null) Destroy(inventoryBar.inventoryItemDescription);

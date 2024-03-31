@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class LightControl : MonoBehaviour
 {
     [SerializeField] private LightDay lightDay;
-    private Light2D light2D;
+    private Light2D[] lights2D;
     private Dictionary<string, float> lightStrengthDict = new Dictionary<string, float>();
     
     [SerializeField] private bool isFlash = false;
@@ -31,8 +31,7 @@ public class LightControl : MonoBehaviour
 
     private void Awake()
     {
-        light2D = GetComponentInChildren<Light2D>();
-
+        lights2D = GetComponentsInChildren<Light2D>();
         foreach(LightStrength lightStrength in lightDay.lightStrengths) lightStrengthDict.Add(lightStrength.season.ToString() + lightStrength.time.ToString(), lightStrength.brightness);
     }
 
@@ -43,14 +42,20 @@ public class LightControl : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(flashTime <= 0f && isFlash)
+        if (flashTime <= 0f && isFlash)
         {
-            light2D.intensity = Random.Range(brightness, brightness + (brightness * flashBrightness));
-            flashTime = Random.Range(minFlash, maxFlash);
+            for (int i = 0; i < lights2D.Length; i++)
+            {
+                lights2D[i].intensity = Random.Range(brightness, brightness + (brightness * flashBrightness));
+                flashTime = Random.Range(minFlash, maxFlash);
+            }
         }
         else
         {
-            light2D.intensity = brightness;
+            for (int i = 0; i < lights2D.Length; i++)
+            {
+                lights2D[i].intensity = brightness;
+            }
         }
     }
     private void AfterLoad()

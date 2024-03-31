@@ -8,7 +8,7 @@ public class InventoryBar : MonoBehaviour
     [SerializeField] private Sprite emptySprite = null;
     [SerializeField] private InventorySlot[] inventorySlot = null;
     public GameObject itemDragged;
-    public GameObject inventoryItemDescription;
+    [HideInInspector] public GameObject inventoryItemDescription;
 
     private void OnEnable()
     {

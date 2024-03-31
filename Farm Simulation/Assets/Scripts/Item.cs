@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
 
     public void Initailize(int itemNo)
     {
-        if(itemNo!=0)
+        if (itemNo != 0)
         {
             this.itemNo = itemNo;
             ItemInfo itemInfo = InventoryManager.GetItemInfo(itemNo);

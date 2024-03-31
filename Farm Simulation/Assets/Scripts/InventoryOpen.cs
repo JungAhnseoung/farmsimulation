@@ -10,9 +10,7 @@ public class InventoryOpen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinTextMeshPro = null;
     private int coin = 0;
     public GameObject itemDraggedObject;
-    public GameObject itemTextObject;
-
-
+    [HideInInspector] public GameObject itemDescription;
     
     private void OnEnable()
     {
@@ -28,7 +26,7 @@ public class InventoryOpen : MonoBehaviour
 
     public void RemoveItemTextObject()
     {
-        if (itemTextObject != null) Destroy(itemTextObject);
+        if (itemDescription != null) Destroy(itemDescription);
     }
 
     public void RemoveItemDragged()

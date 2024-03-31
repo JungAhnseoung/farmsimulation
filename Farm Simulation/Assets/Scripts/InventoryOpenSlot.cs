@@ -9,7 +9,7 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerClickHandler, IPointerEn
 {
     [SerializeField] private InventoryOpen inventoryOpen = null;
     [SerializeField] private InventoryBar inventoryBar = null;
-    [SerializeField] private GameObject itemTextObject = null;
+    [SerializeField] private GameObject itemDescription = null;
     [SerializeField] public int slotIndex;
 
     public ItemInfo itemInfo;
@@ -33,21 +33,21 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerClickHandler, IPointerEn
     {
         if(itemAmount != 0)
         {
-            inventoryOpen.itemTextObject = Instantiate(itemTextObject, transform.position, Quaternion.identity);
-            inventoryOpen.itemTextObject.transform.SetParent(canvasGroup.transform, false);
+            inventoryOpen.itemDescription = Instantiate(itemDescription, transform.position, Quaternion.identity);
+            inventoryOpen.itemDescription.transform.SetParent(canvasGroup.transform, false);
 
-            InventoryItemDescription inventoryItemDescription = inventoryOpen.itemTextObject.GetComponent<InventoryItemDescription>();
+            InventoryItemDescription inventoryItemDescription = inventoryOpen.itemDescription.GetComponent<InventoryItemDescription>();
             inventoryItemDescription.SetDescriptionText(itemInfo.itemName, itemInfo.itemType.ToString(), itemInfo.itemDescription);
             
             if(slotIndex > 11)
             {
-                inventoryOpen.itemTextObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0f);
-                inventoryOpen.itemTextObject.transform.position = new Vector3(transform.position.x, transform.position.y + 50f, transform.position.z);
+                inventoryOpen.itemDescription.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0f);
+                inventoryOpen.itemDescription.transform.position = new Vector3(transform.position.x, transform.position.y + 50f, transform.position.z);
             }
             else
             {
-                inventoryOpen.itemTextObject.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1f);
-                inventoryOpen.itemTextObject.transform.position = new Vector3(transform.position.x, transform.position.y - 50f, transform.position.z);
+                inventoryOpen.itemDescription.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1f);
+                inventoryOpen.itemDescription.transform.position = new Vector3(transform.position.x, transform.position.y - 50f, transform.position.z);
             }
         }
     }
@@ -83,7 +83,7 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerClickHandler, IPointerEn
                 inventoryBar.SetSelectedSlot();
                 InventoryManager.SetSelectedItem(InventoryType.Player, itemInfo.itemNo);
             }
-            if (itemInfo != null && itemInfo.itemType != ItemType.Tool) // && chest open
+            if (itemInfo != null && itemInfo.itemType != ItemType.Tool && Chest.ChestOpen) // && chest open
             {
                 int itemNo = itemInfo.itemNo;
 
@@ -103,6 +103,7 @@ public class InventoryOpenSlot : MonoBehaviour, IPointerClickHandler, IPointerEn
         if(itemAmount != 0)
         {
             itemDragged = Instantiate(inventoryOpen.itemDraggedObject, inventoryOpen.transform);
+            itemDragged.transform.SetParent(canvasGroup.transform, false);
             Image itemDraggedImage = itemDragged.GetComponentInChildren<Image>();
             itemDraggedImage.sprite = inventoryOpenImage.sprite;
         }

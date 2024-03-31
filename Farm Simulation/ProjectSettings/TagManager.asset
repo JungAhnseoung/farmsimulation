@@ -55,14 +55,17 @@ TagManager:
   - name: Lower3
     uniqueID: 1276499281
     locked: 0
+  - name: Lower4
+    uniqueID: 1917298017
+    locked: 0
+  - name: Lower5
+    uniqueID: 391910459
+    locked: 0
   - name: Surroundings1
     uniqueID: 2963909649
     locked: 0
   - name: Surroundings2
     uniqueID: 1469691943
-    locked: 0
-  - name: Surroundings3
-    uniqueID: 1917298017
     locked: 0
   - name: Objects
     uniqueID: 4148225139

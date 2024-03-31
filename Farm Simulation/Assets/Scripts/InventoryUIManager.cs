@@ -38,30 +38,7 @@ public class InventoryUIManager : MonoBehaviour
                 OpenInventory();
             }
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(InventoryOpen)
-            {
-                CloseInventory();
-                inventoryOpen.RemoveSelectedSlot();
-            }
-            else if(GameMenuManager.GameMenuOpen)
-            {
-                GameMenuManager.CloseGameMenu();
-            }
-            else if(!InventoryOpen && !GameMenuManager.GameMenuOpen)
-            {
-                GameMenuManager.OpenGameMenu();
-            }
-        }
-
-        if(Chest.ChestOpen)
-        {
-            if(!InventoryOpen)
-            {
-                OpenInventory();
-            }
-        }
+       
     }
 
     public static void OpenInventory()
@@ -74,6 +51,7 @@ public class InventoryUIManager : MonoBehaviour
     public static void CloseInventory()
     {
         inventoryOpen.RemoveItemDragged();
+        inventoryOpen.RemoveSelectedSlot();
         InventoryOpen = false;
         Player.InputDisabled = false;
         inventory.SetActive(false);

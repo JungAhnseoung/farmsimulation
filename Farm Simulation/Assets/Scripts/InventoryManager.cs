@@ -109,12 +109,7 @@ public class InventoryManager : MonoBehaviour, Save
         int itemNo = item.ItemNo;
         List<InventoryItem> inventoryItems = inventoryItemList[(int)inventoryType];
 
-        int itemIndex = -1;
-
-        for(int i=0; i< inventoryItems.Count; i++ )
-        {
-            if (inventoryItems[i].itemNo == itemNo) itemIndex = i;
-        }
+        int itemIndex = SearchForItem(inventoryType, itemNo);
 
         if(itemIndex == -1)
         {

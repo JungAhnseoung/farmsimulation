@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using UnityEditor.ShaderGraph.Internal;
 
 public class Announcer : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private TextMeshProUGUI announcementText = null;
     [SerializeField] private float fadeSpeed = 0;
     
     private void OnEnable()
     {
         EventHandler.DayPass += ShowIncomeAnnouncement;
+        EventHandler.NotEnoughCoin += ShowNotEnoughCoinAnnouncement;
+        EventHandler.NotEnoughStamina += ShowNotEnoughStamina;
     }
 
     private void OnDisable()
     {
         EventHandler.DayPass -= ShowIncomeAnnouncement;
+        EventHandler.NotEnoughCoin -= ShowNotEnoughCoinAnnouncement;
+        EventHandler.NotEnoughStamina -= ShowNotEnoughStamina;
     }
 
     void Awake()
@@ -30,23 +34,35 @@ public class Announcer : MonoBehaviour
         if(ChestUI.coinTotal != 0)
         {
             announcementText.gameObject.SetActive(true);
-            announcementText.text = ("Your goods in the chest were sold!\n" + "You got " + ChestUI.coinTotal.ToString() + " coin in your bag");
+            announcementText.text = ("You got " + ChestUI.coinTotal.ToString() + " coin in your bag from the chest");
             ChestUI.coinTotal = 0;
             StartCoroutine(FadeOut());
         }
     }
 
+    private void ShowNotEnoughCoinAnnouncement()
+    {
+        announcementText.gameObject.SetActive(true);
+        announcementText.text = ("There is not enough coin");
+        StartCoroutine(FadeOut());
+    }
+
+    private void ShowNotEnoughStamina()
+    {
+        announcementText.gameObject.SetActive(true);
+        announcementText.text = ("There is not enough stamina");
+        StartCoroutine(FadeOut());
+    }
+
     public IEnumerator FadeOut()
     {
-        float startAlpha = announcementText.alpha;
-        while(announcementText.alpha > 0)
+        announcementText.alpha = 1f;
+        while (announcementText.alpha > 0)
         {
             float newAlpha = announcementText.alpha - (1f / fadeSpeed) * Time.deltaTime;
-            newAlpha = Mathf.Max(newAlpha, 0);
             announcementText.alpha = newAlpha;
             yield return null;
         }
         announcementText.gameObject.SetActive(false);
-        announcementText.alpha = startAlpha;
     }
 }

@@ -45,13 +45,11 @@ public class TimeManager : MonoBehaviour, Save
         SaveObject = new SaveObject();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         EventHandler.CallMinutePass(season, year, day, weekDay, hour, min, sec);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!pause)

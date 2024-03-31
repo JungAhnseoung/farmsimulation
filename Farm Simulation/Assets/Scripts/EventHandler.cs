@@ -42,7 +42,13 @@ public static class EventHandler
     public static event Action<Vector3, FarmEffectType> FarmEffect;
 
     public static event Action GeneratePlant;
-    
+
+    public static event Action NotEnoughCoin;
+
+    public static event Action NotEnoughStamina;
+
+    public static event Action<int> StaminaEvent;
+
     public static void CallSeasonPass(Season season, int year, int day, string weekDay, int hour, int min, int sec)
     {
         if (SeasonPass != null) SeasonPass(season, year, day, weekDay, hour, min, sec);
@@ -84,6 +90,20 @@ public static class EventHandler
         if (AfterFadeIn != null) AfterFadeIn();
     }
 
+    public static void CallNotEnoughCoin()
+    {
+        if (NotEnoughCoin != null) NotEnoughCoin();
+    }
+
+    public static void CallNotEnoughStamina()
+    {
+        if(NotEnoughStamina != null) NotEnoughStamina();
+    }
+
+    public static void CallStaminaEvent(int stamina)
+    {
+        if (StaminaEvent != null) StaminaEvent(stamina);
+    }
 
     public static void CallInventoryEvent(InventoryType inventoryType, List<InventoryItem> inventoryItemList)
     {

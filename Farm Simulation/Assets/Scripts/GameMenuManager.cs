@@ -19,6 +19,33 @@ public class GameMenuManager : MonoBehaviour
        inventoryBar = editableInventoryBar;
        gameMenu.SetActive(false);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (InventoryUIManager.InventoryOpen)
+            {
+                InventoryUIManager.CloseInventory();
+
+            }
+            else if (GameMenuOpen)
+            {
+                CloseGameMenu();
+            }
+            else if (!InventoryUIManager.InventoryOpen && !GameMenuOpen)
+            {
+                OpenGameMenu();
+            }
+        }
+
+        if (Chest.ChestOpen || Shop.ShopOpen)
+        {
+            if (!InventoryUIManager.InventoryOpen)
+            {
+                InventoryUIManager.OpenInventory();
+            }
+        }
+    }
 
     public static void OpenGameMenu()
     {

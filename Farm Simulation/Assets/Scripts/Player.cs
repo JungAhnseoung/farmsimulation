@@ -75,9 +75,11 @@ public class Player : MonoBehaviour, Save
     private TileIndicator tileIndicator;
     private Indicator indicator;
 
-    private Camera camera;
 
     public static int coin = 0;
+    public static int currentStamina = 100;
+    private int decreaseStamina = 15;
+    private bool hasEnoughStamina = true;
 
     private void OnEnable()
     {
@@ -106,7 +108,6 @@ public class Player : MonoBehaviour, Save
         go = this.gameObject;
         tileIndicator = FindObjectOfType<TileIndicator>();
         indicator = FindObjectOfType<Indicator>();
-        camera = Camera.main;
     }
 
     private void Update()
@@ -178,26 +179,58 @@ public class Player : MonoBehaviour, Save
                                 switch(itemInfo.itemName)
                                 {
                                     case "Hoe":
-                                        if (tileIndicator.IndicatorAllowed) StartCoroutine(UseHoe(clickDirection, tileAttributeDetail));
+                                        CheckStamina();
+                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        {
+                                            StartCoroutine(UseHoe(clickDirection, tileAttributeDetail));
+                                            UseStamina();
+                                        }
+
                                         break;
                                     case "Watering Can":
-                                        if (tileIndicator.IndicatorAllowed) StartCoroutine(UseWateringCan(clickDirection, tileAttributeDetail));
+                                        CheckStamina();
+                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        {
+                                            StartCoroutine(UseWateringCan(clickDirection, tileAttributeDetail));
+                                            UseStamina();
+                                        }
                                         break;
                                     case "Scythe":
-                                        if(indicator.IndicatorAllowed)
+                                        if (indicator.IndicatorAllowed)
                                         {
-                                            clickDirection = PlayerDirection(indicator.GetLocationIndicator(), GetCenter());
-                                            StartCoroutine(UseScythe(clickDirection, itemInfo));
+                                            if(CheckStamina())
+                                            {
+                                                clickDirection = PlayerDirection(indicator.GetLocationIndicator(), GetCenter());
+                                                StartCoroutine(UseScythe(clickDirection, itemInfo));
+                                                UseStamina();
+                                            }
                                         }
                                         break;
                                     case "Basket":
-                                        if (tileIndicator.IndicatorAllowed) StartCoroutine(UseBasket(clickDirection, tileAttributeDetail, itemInfo));
+                                        CheckStamina();
+                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        {
+                                            StartCoroutine(UseBasket(clickDirection, tileAttributeDetail, itemInfo));
+                                            UseStamina();
+                                        }
+
                                         break;
                                     case "Axe":
-                                        if (tileIndicator.IndicatorAllowed) StartCoroutine(UseAxe(clickDirection, tileAttributeDetail, itemInfo));
+                                        CheckStamina();
+                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        {
+                                            StartCoroutine(UseAxe(clickDirection, tileAttributeDetail, itemInfo));
+                                            UseStamina();
+                                        }
+
                                         break;
                                     case "Pickaxe":
-                                        if (tileIndicator.IndicatorAllowed) StartCoroutine(UsePickaxe(clickDirection, tileAttributeDetail, itemInfo));
+                                        CheckStamina();
+                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        {
+                                            StartCoroutine(UsePickaxe(clickDirection, tileAttributeDetail, itemInfo));
+                                            UseStamina();
+                                        }
                                         break;
                                     default:
                                         break;
@@ -206,7 +239,12 @@ public class Player : MonoBehaviour, Save
                             case ItemType.Seed:
                                 if(Input.GetMouseButtonDown(0))
                                 {
-                                    if (itemInfo.isDroppable && tileIndicator.IndicatorAllowed && tileAttributeDetail.ageDig > -1 && tileAttributeDetail.seedNo == -1) UseSeed(tileAttributeDetail, itemInfo);
+                                    CheckStamina();
+                                    if (itemInfo.isDroppable && tileIndicator.IndicatorAllowed && tileAttributeDetail.ageDig > -1 && tileAttributeDetail.seedNo == -1 && hasEnoughStamina)
+                                    {
+                                        UseSeed(tileAttributeDetail, itemInfo);
+                                        UseStamina();
+                                    }
                                     else EventHandler.CallDropEvent();
                                 }
                                 break;
@@ -225,6 +263,29 @@ public class Player : MonoBehaviour, Save
         }
     }
 
+    private bool CheckStamina()
+    {
+        if(currentStamina - decreaseStamina < 0)
+        {
+            EventHandler.CallNotEnoughStamina();
+            hasEnoughStamina = false;
+        }
+        else
+        {
+            hasEnoughStamina = true;
+        }
+        return hasEnoughStamina;
+    }
+
+    private void UseStamina()
+    {
+        if(currentStamina - decreaseStamina >= 0)
+        {
+            currentStamina = currentStamina - decreaseStamina;
+            EventHandler.CallStaminaEvent(currentStamina);
+            
+        }
+    }
 
     private void MovementInput()
     {
@@ -625,6 +686,11 @@ public class Player : MonoBehaviour, Save
                     }
                 }
                 if (saveScene.intData != null && saveScene.intData.TryGetValue("coin", out int pCoin)) coin = pCoin;
+                if (saveScene.intData != null && saveScene.intData.TryGetValue("stamina", out int pStamina))
+                {
+                    currentStamina = pStamina;
+                    EventHandler.CallStaminaEvent(currentStamina);
+                }
             }
         }
     }
@@ -642,6 +708,7 @@ public class Player : MonoBehaviour, Save
         saveScene.stringData.Add("scene", SceneManager.GetActiveScene().name);
         saveScene.stringData.Add("direction", direction.ToString());
         saveScene.intData.Add("coin", coin);
+        saveScene.intData.Add("stamina", currentStamina);
         SaveObject.scene.Add("Base", saveScene);
 
         return SaveObject;

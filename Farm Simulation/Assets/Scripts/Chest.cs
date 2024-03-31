@@ -60,9 +60,6 @@ public class Chest : MonoBehaviour
         Player.InputDisabled = false;
         chest.SetActive(false);
         this.GetComponent<SpriteRenderer>().sprite = closeChestSprite;
-        if(InventoryUIManager.InventoryOpen)
-        {
-            InventoryUIManager.CloseInventory();
-        }
+        InventoryUIManager.CloseInventory();
     }
 }
