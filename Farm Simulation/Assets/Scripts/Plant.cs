@@ -130,6 +130,11 @@ public class Plant : MonoBehaviour
         tileAttributeDetail.ageWater = -1;
         tileAttributeDetail.ageFarm = -1;
         tileAttributeDetail.age = 0;
+        
+        if (plantInfo.reAge != 0)
+        {
+            tileAttributeDetail.age = plantInfo.reAge;
+        }
 
         TileManager.SetTileAttributeDetail(tileAttributeDetail.x, tileAttributeDetail.y, tileAttributeDetail);
         TileManager.ShowPlantTile(tileAttributeDetail);

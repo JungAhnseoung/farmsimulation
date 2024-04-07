@@ -102,6 +102,13 @@ public class TileIndicator : MonoBehaviour
                                     image.sprite = notAllowedSprite;
                                 }
                                 break;
+                            case ItemType.Animal:
+                                if (!tileAttributeDetail.isAnimalable)
+                                {
+                                    indicatorAllowed = false;
+                                    image.sprite = notAllowedSprite;
+                                }
+                                break;
                             case ItemType.Tool:
                                 if(!IsTileTool(tileAttributeDetail, selectedItemInfo))
                                 {

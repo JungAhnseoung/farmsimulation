@@ -23,7 +23,8 @@ public class TimeDisplay : MonoBehaviour
     private void OnEnable()
     {
         EventHandler.MinutePass += UpdateTime;
-        for(int i =0; i<6; i++)
+        EventHandler.DayPass += ResetTime;
+        for (int i =0; i<6; i++)
         {
             timeBar[i].gameObject.SetActive(false);
         }
@@ -32,6 +33,7 @@ public class TimeDisplay : MonoBehaviour
     private void OnDisable()
     {
         EventHandler.MinutePass -= UpdateTime;
+        EventHandler.DayPass -= ResetTime;
     }
 
     private void UpdateTime(Season season, int year, int day, string weekDay, int hour, int min, int sec)
@@ -82,5 +84,10 @@ public class TimeDisplay : MonoBehaviour
         yearTxt.SetText("Year " + year);
         dateTxt.SetText(weekDay + ". " + day.ToString());
         timeTxt.SetText(timeDp);
+    }
+
+    private void ResetTime(Season season, int year, int day, string weekDay, int hour, int min, int sec)
+    {
+        timeImg.transform.rotation = Quaternion.identity;
     }
 }

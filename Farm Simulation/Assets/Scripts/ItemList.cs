@@ -15,7 +15,7 @@ public enum ItemType
     Seed,
     Goods,
     Farmable,
-    Furniture,
+    Animal,
     Count,
     None
 }

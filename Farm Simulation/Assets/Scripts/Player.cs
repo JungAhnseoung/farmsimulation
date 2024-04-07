@@ -179,20 +179,24 @@ public class Player : MonoBehaviour, Save
                                 switch(itemInfo.itemName)
                                 {
                                     case "Hoe":
-                                        CheckStamina();
-                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        if (tileIndicator.IndicatorAllowed)
                                         {
-                                            StartCoroutine(UseHoe(clickDirection, tileAttributeDetail));
-                                            UseStamina();
+                                            if(CheckStamina())
+                                            {
+                                                StartCoroutine(UseHoe(clickDirection, tileAttributeDetail));
+                                                UseStamina();
+                                            }
                                         }
 
                                         break;
                                     case "Watering Can":
-                                        CheckStamina();
-                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        if (tileIndicator.IndicatorAllowed)
                                         {
-                                            StartCoroutine(UseWateringCan(clickDirection, tileAttributeDetail));
-                                            UseStamina();
+                                            if(CheckStamina())
+                                            {
+                                                StartCoroutine(UseWateringCan(clickDirection, tileAttributeDetail));
+                                                UseStamina();
+                                            }
                                         }
                                         break;
                                     case "Scythe":
@@ -207,29 +211,42 @@ public class Player : MonoBehaviour, Save
                                         }
                                         break;
                                     case "Basket":
-                                        CheckStamina();
-                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        if (tileIndicator.IndicatorAllowed)
                                         {
-                                            StartCoroutine(UseBasket(clickDirection, tileAttributeDetail, itemInfo));
-                                            UseStamina();
+                                            if(CheckStamina())
+                                            {
+                                                StartCoroutine(UseBasket(clickDirection, tileAttributeDetail, itemInfo));
+                                                UseStamina();
+                                            }
                                         }
-
+                                        else if (indicator.IndicatorAllowed)
+                                        {
+                                            if(CheckStamina())
+                                            {
+                                                StartCoroutine(UseBasket(clickDirection, itemInfo));
+                                                UseStamina();
+                                            }
+                                        }
                                         break;
                                     case "Axe":
-                                        CheckStamina();
-                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        if (tileIndicator.IndicatorAllowed)
                                         {
-                                            StartCoroutine(UseAxe(clickDirection, tileAttributeDetail, itemInfo));
-                                            UseStamina();
+                                            if(CheckStamina())
+                                            {
+                                                StartCoroutine(UseAxe(clickDirection, tileAttributeDetail, itemInfo));
+                                                UseStamina();
+                                            }
                                         }
 
                                         break;
                                     case "Pickaxe":
-                                        CheckStamina();
-                                        if (tileIndicator.IndicatorAllowed && hasEnoughStamina)
+                                        if (tileIndicator.IndicatorAllowed)
                                         {
-                                            StartCoroutine(UsePickaxe(clickDirection, tileAttributeDetail, itemInfo));
-                                            UseStamina();
+                                            if (CheckStamina())
+                                            {
+                                                StartCoroutine(UsePickaxe(clickDirection, tileAttributeDetail, itemInfo));
+                                                UseStamina();
+                                            }
                                         }
                                         break;
                                     default:
@@ -239,17 +256,25 @@ public class Player : MonoBehaviour, Save
                             case ItemType.Seed:
                                 if(Input.GetMouseButtonDown(0))
                                 {
-                                    CheckStamina();
-                                    if (itemInfo.isDroppable && tileIndicator.IndicatorAllowed && tileAttributeDetail.ageDig > -1 && tileAttributeDetail.seedNo == -1 && hasEnoughStamina)
+                                    if (itemInfo.isDroppable && tileIndicator.IndicatorAllowed && tileAttributeDetail.ageDig > -1 && tileAttributeDetail.seedNo == -1)
                                     {
-                                        UseSeed(tileAttributeDetail, itemInfo);
-                                        UseStamina();
+                                        if(CheckStamina())
+                                        {
+                                            UseSeed(tileAttributeDetail, itemInfo);
+                                            UseStamina();
+                                        }
                                     }
                                     else EventHandler.CallDropEvent();
                                 }
                                 break;
                             case ItemType.Goods:
                                 if(Input.GetMouseButtonDown(0))
+                                {
+                                    if (itemInfo.isDroppable && tileIndicator.IndicatorAllowed) EventHandler.CallDropEvent();
+                                }
+                                break;
+                            case ItemType.Animal:
+                                if (Input.GetMouseButtonDown(0))
                                 {
                                     if (itemInfo.isDroppable && tileIndicator.IndicatorAllowed) EventHandler.CallDropEvent();
                                 }
@@ -465,11 +490,52 @@ public class Player : MonoBehaviour, Save
         {
             plant.ToolFarm(itemInfo, isPullUp, isPullDown, isPullRight, isPullLeft);
         }
+       
+        yield return new WaitForSeconds(1f);
+
+        InputDisabled = false;
+        disableTool = false;
+    }
+
+    private IEnumerator UseBasket(Vector3Int clickDirection, ItemInfo itemInfo)
+    {
+        InputDisabled = true;
+        disableTool = true;
+        if (Input.GetMouseButton(0))
+        {
+            if (clickDirection == Vector3Int.up) isPullUp = true;
+            else if (clickDirection == Vector3Int.down) isPullDown = true;
+            else if (clickDirection == Vector3Int.right) isPullRight = true;
+            else if (clickDirection == Vector3Int.left) isPullLeft = true;
+        }
+
+        float radius = 1.0f;
+        Vector2 pivot = new Vector2(GetCenter().x + (clickDirection.x * (radius / 2f)), GetCenter().y + (clickDirection.y * (radius / 2f)));
+        Vector2 scale = new Vector2(radius, radius);
+
+        Item[] items = Others.GetObjectInPositionBoxNon<Item>(15, pivot, scale, 0f);
+        int farmable = 0;
+        for (int i = items.Length - 1; i >= 0; i--)
+        {
+            if (items[i] != null)
+            {
+                if (InventoryManager.GetItemInfo(items[i].ItemNo).itemType == ItemType.Animal)
+                {
+                    Vector3 visualEffectLocation = new Vector3(items[i].transform.position.x, items[i].transform.position.y + TileManager.gridSize / 2f, items[i].transform.position.z);
+                    EventHandler.CallFarmEffect(visualEffectLocation, FarmEffectType.Animal);
+                    Destroy(items[i].gameObject);
+                    InventoryManager.AddItemInInventory(InventoryType.Player, items[i].ItemNo);
+                    farmable++;
+                    if (farmable >= 2) break;
+                }
+            }
+        }
 
         yield return new WaitForSeconds(1f);
 
         InputDisabled = false;
         disableTool = false;
+
     }
 
     private IEnumerator UseAxe(Vector3Int clickDirection, TileAttributeDetail tileAttributeDetail, ItemInfo itemInfo)

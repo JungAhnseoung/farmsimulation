@@ -5527,6 +5527,7 @@ MonoBehaviour:
   broadLeafLeaves: {fileID: 7243964928215287574, guid: 70a28a3570e186d499412f653b136f72, type: 3}
   wood: {fileID: 5185333206998637672, guid: b3d27307d2a16ee4fa4e87d16cb22767, type: 3}
   stone: {fileID: 5185333206998637672, guid: a79b1f508c422c546bed32cfbc96fee0, type: 3}
+  animal: {fileID: 3574109542169632475, guid: 4ed2d9fb5be2d2c4391b2c63f8ed16a2, type: 3}
 --- !u!1 &833363626
 GameObject:
   m_ObjectHideFlags: 0
@@ -11768,6 +11769,8 @@ MonoBehaviour:
   - reusableObject: {fileID: 5185333206998637672, guid: b3d27307d2a16ee4fa4e87d16cb22767, type: 3}
     size: 5
   - reusableObject: {fileID: 5185333206998637672, guid: a79b1f508c422c546bed32cfbc96fee0, type: 3}
+    size: 5
+  - reusableObject: {fileID: 3574109542169632475, guid: 4ed2d9fb5be2d2c4391b2c63f8ed16a2, type: 3}
     size: 5
   reusableTransform: {fileID: 2042096218}
 --- !u!1 &2073402516

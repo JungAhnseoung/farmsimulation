@@ -24,6 +24,7 @@ public class TileManager : MonoBehaviour, Save
     [SerializeField] private Tile[] editableWaterTile = null;
     private static Tile[] digTile = null;
     private static Tile[] waterTile = null;
+    
 
     public const float gridSize = 1f;
 
@@ -71,10 +72,35 @@ public class TileManager : MonoBehaviour, Save
                     {
                         KeyValuePair<string, TileAttributeDetail> item = saveScene.tileAttributeDetailData.ElementAt(i);
                         TileAttributeDetail tileAttributeDetail = item.Value;
-
+                        bool isSeasonMatched = false;
                         if (tileAttributeDetail.age > -1 && tileAttributeDetail.ageDig == -1) tileAttributeDetail.age += 1;
                         else if (tileAttributeDetail.age > -1 && tileAttributeDetail.ageDig > -1 && tileAttributeDetail.ageWater > -1) tileAttributeDetail.age += 1;
-                        if (tileAttributeDetail.ageWater > -1) tileAttributeDetail.ageWater = -1;
+                        if (tileAttributeDetail.ageWater > -1)
+                        {
+                            tileAttributeDetail.ageWater = -1;
+                        }
+                        else
+                        {
+                            tileAttributeDetail.ageNoWater += 1;
+                        }
+                        if(tileAttributeDetail.age == -1 && tileAttributeDetail.ageDig > -1) tileAttributeDetail.ageDig = -1;
+                  
+                        if(tileAttributeDetail.age > -1 && tileAttributeDetail.ageDig > -1)
+                        {
+                            for (int j=0;  j <= GetPlantInfo(tileAttributeDetail.seedNo).season.Length - 1; j++)
+                            {
+                                if (GetPlantInfo(tileAttributeDetail.seedNo).season[j] == season) isSeasonMatched = true;
+                            }
+
+                            if (!isSeasonMatched)
+                            {
+                                tileAttributeDetail.age = -1;
+                                tileAttributeDetail.ageWater = -1;
+                                tileAttributeDetail.ageFarm = -1;
+                                tileAttributeDetail.seedNo = -1;
+                            }
+                        }
+
                         SetTileAttributeDetail(tileAttributeDetail.x, tileAttributeDetail.y, tileAttributeDetail, saveScene.tileAttributeDetailData);
                     }
                 }
@@ -109,20 +135,12 @@ public class TileManager : MonoBehaviour, Save
                         tileAttributeDetail.isDroppable = tileAttribute.tileBool;
                         break;
 
-                    case TileBoolean.isBlock:
-                        tileAttributeDetail.isBlock = tileAttribute.tileBool;
-                        break;
-
-                    case TileBoolean.isPath:
-                        tileAttributeDetail.isPath = tileAttribute.tileBool;
-                        break;
-
                     case TileBoolean.isDiggable:
                         tileAttributeDetail.isDiggable = tileAttribute.tileBool;
                         break;
 
-                    case TileBoolean.isFurniturable:
-                        tileAttributeDetail.isFurniturable = tileAttribute.tileBool;
+                    case TileBoolean.isAnimalable:
+                        tileAttributeDetail.isAnimalable = tileAttribute.tileBool;
                         break;
 
                     default:

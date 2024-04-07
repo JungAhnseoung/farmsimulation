@@ -4,11 +4,9 @@ using UnityEngine;
 
 public enum TileBoolean
 {
-    isPath,
-    isBlock,
     isDroppable,
     isDiggable,
-    isFurniturable
+    isAnimalable,
 }
 
 [System.Serializable]
@@ -68,11 +66,10 @@ public class TileAttributeDetail
     public int ageFarm = -1;
     public int ageDig = -1;
     public int ageWater = -1;
-    public bool isPath = false;
-    public bool isBlock = false;
+    public int ageNoWater = -1;
     public bool isDroppable = false;
     public bool isDiggable = false;
-    public bool isFurniturable = false;
+    public bool isAnimalable = false;
 
     public TileAttributeDetail()
     {

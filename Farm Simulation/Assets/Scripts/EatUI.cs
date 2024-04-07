@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EatUI : MonoBehaviour
 {
-    public static TextMeshProUGUI eatText = null;
+    public  static TextMeshProUGUI eatText = null;
 
     private void Awake()
     {

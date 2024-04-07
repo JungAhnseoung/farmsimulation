@@ -9,6 +9,7 @@ public enum FarmEffectType
     NeedieLeaves,
     Stone,
     Grass,
+    Animal,
     None
 }
 public class EffectManager : MonoBehaviour
@@ -18,7 +19,7 @@ public class EffectManager : MonoBehaviour
     [SerializeField] private GameObject broadLeafLeaves = null;
     [SerializeField] private GameObject wood = null;
     [SerializeField] private GameObject stone = null;
-
+    [SerializeField] private GameObject animal = null;
     private void OnEnable()
     {
         EventHandler.FarmEffect += ShowFarmEffect;
@@ -57,6 +58,11 @@ public class EffectManager : MonoBehaviour
                 GameObject stoneEffect = ReusableManager.Reuse(stone, effectLocation, Quaternion.identity);
                 stoneEffect.SetActive(true);
                 StartCoroutine(DisableFarmEffect(stoneEffect));
+                break;
+            case FarmEffectType.Animal:
+                GameObject animalEffect = ReusableManager.Reuse(animal, effectLocation, Quaternion.identity);
+                animalEffect.SetActive(true);
+                StartCoroutine(DisableFarmEffect(animalEffect));
                 break;
             default:
                 break;

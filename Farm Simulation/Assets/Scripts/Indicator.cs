@@ -113,6 +113,8 @@ public class Indicator : MonoBehaviour
         {
             case "Scythe":
                 return IsUsableScythe(indicatorLocation, playerLocation, itemInfo);
+            case "Basket":
+                return IsUsableBasket(indicatorLocation, playerLocation, itemInfo);
             default:
                 return false;
         }
@@ -129,6 +131,27 @@ public class Indicator : MonoBehaviour
                 foreach(Item item in items)
                 {
                     if (InventoryManager.GetItemInfo(item.ItemNo).itemType == ItemType.Farmable) return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsUsableBasket(Vector3 indicatorLocation, Vector3 playerLocation, ItemInfo itemInfo)
+    {
+        List<Item> items = new List<Item>();
+
+        if (Others.GetObjectInPosition<Item>(out items, indicatorLocation))
+        {
+            if (items.Count != 0)
+            {
+                foreach (Item item in items)
+                {
+                    if (InventoryManager.GetItemInfo(item.ItemNo).itemType == ItemType.Animal)
+                    {
+                        return true;
+                    }
                 }
             }
         }

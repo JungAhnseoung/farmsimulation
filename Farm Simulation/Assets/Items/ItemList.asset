@@ -22,7 +22,7 @@ MonoBehaviour:
     isEdible: 0
     isDroppable: 0
     distance: 1
-    nontiledistance: 0
+    nontiledistance: 2
     itemIcon: {fileID: 21300000, guid: 21f88cda6c810402583055801e6a2c73, type: 3}
     itemSprite: {fileID: 21300000, guid: 21f88cda6c810402583055801e6a2c73, type: 3}
     sellPrice: 0
@@ -415,4 +415,17 @@ MonoBehaviour:
     nontiledistance: 0
     itemIcon: {fileID: 21300000, guid: 51532cbb9bf104839b6330f0a739b933, type: 3}
     itemSprite: {fileID: 21300000, guid: 51532cbb9bf104839b6330f0a739b933, type: 3}
+    sellPrice: 0
+  - itemType: 4
+    itemNo: 1031
+    itemName: Cat
+    itemDescription: A cat.
+    isPickable: 0
+    isCarriable: 0
+    isEdible: 0
+    isDroppable: 1
+    distance: 1
+    nontiledistance: 0
+    itemIcon: {fileID: 1741575186, guid: 43bfa2b184972d548a99ff0ee9ab7a9f, type: 3}
+    itemSprite: {fileID: 1741575186, guid: 43bfa2b184972d548a99ff0ee9ab7a9f, type: 3}
     sellPrice: 0

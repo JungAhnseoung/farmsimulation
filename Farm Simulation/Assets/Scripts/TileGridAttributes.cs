@@ -10,7 +10,7 @@ public class TileGridAttributes : MonoBehaviour
 {
 #if UNITY_EDITOR
     [SerializeField] private TileAttributes tileAttributes = null;
-    [SerializeField] private TileBoolean tileBoolean = TileBoolean.isPath;
+    [SerializeField] private TileBoolean tileBoolean = TileBoolean.isDiggable;
     private Tilemap tilemap;
 
     private void OnEnable()

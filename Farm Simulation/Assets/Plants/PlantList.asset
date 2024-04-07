@@ -26,7 +26,7 @@ MonoBehaviour:
     - {fileID: -1201955594, guid: 87430ba1a26c4408191e4027950e7133, type: 3}
     - {fileID: 22577986, guid: 87430ba1a26c4408191e4027950e7133, type: 3}
     farmSprite: {fileID: -2109362084, guid: 87430ba1a26c4408191e4027950e7133, type: 3}
-    season: 0000000001000000
+    season: 000000000100000002000000
     seedNo: 1022
     plantChangeNo: 0
     toolNo: e8030000
@@ -168,7 +168,7 @@ MonoBehaviour:
     ageSprite:
     - {fileID: 21300000, guid: 51532cbb9bf104839b6330f0a739b933, type: 3}
     farmSprite: {fileID: 0}
-    season: 00000000010000000300000002000000
+    season: 000000000100000003000000
     seedNo: 1030
     plantChangeNo: 0
     toolNo: f3030000
@@ -184,3 +184,61 @@ MonoBehaviour:
     isFarmEffect: 1
     generatePlantInInventory: 0
     farmEffectType: 3
+  - agingObject:
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    ageSprite:
+    - {fileID: -1489595994, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
+    - {fileID: 718811943, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
+    - {fileID: 1774969089, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
+    - {fileID: -1256380199, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
+    - {fileID: -455393919, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
+    farmSprite: {fileID: 504974383, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
+    season: 0100000002000000
+    seedNo: 1013
+    plantChangeNo: 0
+    toolNo: e8030000
+    goodsNo: f4030000
+    age: 0000000001000000020000000300000005000000
+    toolAction: 01000000
+    plantMax: 01000000
+    plantMin: 01000000
+    reAge: 0
+    disablePlant: 1
+    disablePlantCollider: 0
+    isFarmAnimation: 1
+    isFarmEffect: 0
+    generatePlantInInventory: 1
+    farmEffectType: 5
+  - agingObject:
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    - {fileID: 5950818247864272547, guid: f1d44fe2f8079534ea412cfb94a35cbc, type: 3}
+    ageSprite:
+    - {fileID: 335049101, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
+    - {fileID: -1150923953, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
+    - {fileID: -270931293, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
+    - {fileID: 546229442, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
+    - {fileID: -1031843392, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
+    farmSprite: {fileID: -1889884627, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
+    season: 000000000100000002000000
+    seedNo: 1006
+    plantChangeNo: 1006
+    toolNo: e8030000
+    goodsNo: ed030000
+    age: 000000000300000006000000090000000c000000
+    toolAction: 01000000
+    plantMax: 01000000
+    plantMin: 01000000
+    reAge: 9
+    disablePlant: 0
+    disablePlantCollider: 0
+    isFarmAnimation: 1
+    isFarmEffect: 0
+    generatePlantInInventory: 1
+    farmEffectType: 5
