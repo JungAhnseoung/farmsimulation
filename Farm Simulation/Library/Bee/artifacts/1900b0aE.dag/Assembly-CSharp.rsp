@@ -400,6 +400,7 @@
 "Assets/Scripts/Chest.cs"
 "Assets/Scripts/ChestSlot.cs"
 "Assets/Scripts/ChestUI.cs"
+"Assets/Scripts/Cloud.cs"
 "Assets/Scripts/Door.cs"
 "Assets/Scripts/EatUI.cs"
 "Assets/Scripts/EffectManager.cs"

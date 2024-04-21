@@ -29,8 +29,8 @@ public class Bed : MonoBehaviour
     private bool IsPlayerClose()
     {
         Vector3 playerLocation = player.GetCenter();
-        Vector3 chestLocation = this.transform.position;
-        float distance = Vector3.Distance(playerLocation, chestLocation);
+        Vector3 bedLocation = this.transform.position;
+        float distance = Vector3.Distance(playerLocation, bedLocation);
         return (distance > 3f) ? false : true;
     }
 

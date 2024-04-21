@@ -49,6 +49,10 @@ public static class EventHandler
 
     public static event Action<int> StaminaEvent;
 
+    public static event Action LateNightEvent;
+
+    public static event Action<int> LostCoinEvent;
+
     public static void CallSeasonPass(Season season, int year, int day, string weekDay, int hour, int min, int sec)
     {
         if (SeasonPass != null) SeasonPass(season, year, day, weekDay, hour, min, sec);
@@ -103,6 +107,16 @@ public static class EventHandler
     public static void CallStaminaEvent(int stamina)
     {
         if (StaminaEvent != null) StaminaEvent(stamina);
+    }
+
+    public static void CallLateNightEvent()
+    {
+        if (LateNightEvent != null) LateNightEvent();
+    }
+
+    public static void CallLostCoinEvent(int lostCoin)
+    {
+        if(LostCoinEvent != null) LostCoinEvent(lostCoin);
     }
 
     public static void CallInventoryEvent(InventoryType inventoryType, List<InventoryItem> inventoryItemList)

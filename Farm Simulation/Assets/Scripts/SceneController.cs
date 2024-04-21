@@ -12,7 +12,7 @@ public enum SceneType
 }
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] private static float duration = 0.2f;
+    [SerializeField] private static float duration = 0.5f;
     [SerializeField] private CanvasGroup canvasParent = null;
     [SerializeField] private static CanvasGroup canvasGroup = null;
     [SerializeField] private Image image = null;

@@ -23,11 +23,11 @@ public class ObjectVisualEffect : MonoBehaviour
             }
             if (Random.Range(0, 2) == 0)
             {
-                StartCoroutine(WobbleRight());
+                if (this.gameObject.activeInHierarchy) StartCoroutine(WobbleRight());
             }
             else
             {
-                StartCoroutine(WobbleLeft());
+                if (this.gameObject.activeInHierarchy) StartCoroutine(WobbleLeft());
             }
         }
     }
@@ -46,11 +46,11 @@ public class ObjectVisualEffect : MonoBehaviour
             }
             if (Random.Range(0, 2) == 0)
             {
-                StartCoroutine(WobbleRight());
+                if (this.gameObject.activeInHierarchy) StartCoroutine(WobbleRight());
             }
             else
             {
-                StartCoroutine(WobbleLeft());
+                if (this.gameObject.activeInHierarchy)  StartCoroutine(WobbleLeft());
             }
         }
     }

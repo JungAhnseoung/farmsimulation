@@ -12822,6 +12822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdingItemSpriteRenderer: {fileID: 1117742084}
+  respawnPosition: {x: -10, y: 5, z: 0}
 --- !u!4 &6478712016802115880
 Transform:
   m_ObjectHideFlags: 0

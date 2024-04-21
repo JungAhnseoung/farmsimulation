@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
-using UnityEditor.ShaderGraph.Internal;
 
 public class Announcer : MonoBehaviour
 {
@@ -15,6 +14,8 @@ public class Announcer : MonoBehaviour
         EventHandler.DayPass += ShowIncomeAnnouncement;
         EventHandler.NotEnoughCoin += ShowNotEnoughCoinAnnouncement;
         EventHandler.NotEnoughStamina += ShowNotEnoughStamina;
+        EventHandler.LateNightEvent += ShowLateNight;
+        EventHandler.LostCoinEvent += ShowLostCoin;
     }
 
     private void OnDisable()
@@ -22,6 +23,8 @@ public class Announcer : MonoBehaviour
         EventHandler.DayPass -= ShowIncomeAnnouncement;
         EventHandler.NotEnoughCoin -= ShowNotEnoughCoinAnnouncement;
         EventHandler.NotEnoughStamina -= ShowNotEnoughStamina;
+        EventHandler.LateNightEvent -= ShowLateNight;
+        EventHandler.LostCoinEvent -= ShowLostCoin;
     }
 
     void Awake()
@@ -51,6 +54,23 @@ public class Announcer : MonoBehaviour
     {
         announcementText.gameObject.SetActive(true);
         announcementText.text = ("There is not enough stamina");
+        StartCoroutine(FadeOut());
+    }
+
+    private void ShowLostCoin(int coin)
+    {
+        if(coin != 0)
+        {
+            announcementText.gameObject.SetActive(true);
+            announcementText.text = announcementText.text +  ("\nYou lost " + coin +" gold");
+            StartCoroutine(FadeOut());
+        }
+    }
+
+    private void ShowLateNight()
+    {
+        announcementText.gameObject.SetActive(true);
+        announcementText.text = ("It's getting Late...");
         StartCoroutine(FadeOut());
     }
 

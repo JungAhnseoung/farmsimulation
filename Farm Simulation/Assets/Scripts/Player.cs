@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
+using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 
 public enum Direction
 {
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour, Save
     private static SpriteRenderer sp;
     public static GameObject go;
     public static Vector3 position;
+    [SerializeField] private Vector3 respawnPosition = new Vector3();
 
     private static CharacterDetailAttribute armsAttribute;
     private static CharacterDetailAttribute toolAttribute;
@@ -78,7 +82,7 @@ public class Player : MonoBehaviour, Save
 
     public static int coin = 0;
     public static int currentStamina = 100;
-    private int decreaseStamina = 15;
+    private int decreaseStamina = 5;
     private bool hasEnoughStamina = true;
 
     private void OnEnable()
@@ -147,7 +151,7 @@ public class Player : MonoBehaviour, Save
                 isReapRight, isReapLeft, isReapUp, isReapDown);
 
         }
-
+        PassOut();
       }
 
 
@@ -509,12 +513,11 @@ public class Player : MonoBehaviour, Save
             else if (clickDirection == Vector3Int.left) isPullLeft = true;
         }
 
-        float radius = 1.0f;
+        float radius = 2.0f;
         Vector2 pivot = new Vector2(GetCenter().x + (clickDirection.x * (radius / 2f)), GetCenter().y + (clickDirection.y * (radius / 2f)));
         Vector2 scale = new Vector2(radius, radius);
 
         Item[] items = Others.GetObjectInPositionBoxNon<Item>(15, pivot, scale, 0f);
-        int farmable = 0;
         for (int i = items.Length - 1; i >= 0; i--)
         {
             if (items[i] != null)
@@ -525,8 +528,6 @@ public class Player : MonoBehaviour, Save
                     EventHandler.CallFarmEffect(visualEffectLocation, FarmEffectType.Animal);
                     Destroy(items[i].gameObject);
                     InventoryManager.AddItemInInventory(InventoryType.Player, items[i].ItemNo);
-                    farmable++;
-                    if (farmable >= 2) break;
                 }
             }
         }
@@ -599,6 +600,9 @@ public class Player : MonoBehaviour, Save
                     Vector3 visualEffectLocation = new Vector3(items[i].transform.position.x, items[i].transform.position.y + TileManager.gridSize / 2f, items[i].transform.position.z);
                     EventHandler.CallFarmEffect(visualEffectLocation, FarmEffectType.Grass);
                     Destroy(items[i].gameObject);
+
+                    Vector3 location = new Vector3(items[i].gameObject.transform.position.x + Random.Range(-1f, 1f), items[i].gameObject.transform.position.y + Random.Range(-1f, 1f), 0f);
+                    ItemSave.SpawnItemInScene(1007, location);
                     farmable++;
                     if (farmable >= 2) break;
                 }
@@ -678,11 +682,10 @@ public class Player : MonoBehaviour, Save
 
             if(itemInfo.isPickable)
             {
-                InventoryManager.AddItemInInventory(InventoryType.Player, item);
                 if (itemInfo.itemType == ItemType.Goods || itemInfo.itemType == ItemType.Seed || itemInfo.itemType == ItemType.Tool)
                 {
                     StartCoroutine(PickUp(collision));
-                    
+                    InventoryManager.AddItemInInventory(InventoryType.Player, item);
                 }
             }
          
@@ -693,6 +696,31 @@ public class Player : MonoBehaviour, Save
     {
         yield return new WaitForSeconds(0.3f);
         if(collision != null) Destroy(collision.gameObject);
+    }
+
+    private void PassOut()
+    {
+        int hour = TimeManager.GetTime().Hours;
+        int min = TimeManager.GetTime().Minutes;
+        
+        if (hour == 23 && min == 0)
+        {
+            EventHandler.CallLateNightEvent();
+        }
+
+        if(hour == 23 && min == 50)
+        {
+            TimeManager.PassDay();
+            float xCor = Mathf.Approximately(respawnPosition.x, 0f) ? transform.position.x : respawnPosition.x;
+            float yCor = Mathf.Approximately(respawnPosition.y, 0f) ? transform.position.y : respawnPosition.y;
+            SceneController.FadeOutLoad(SceneType.Home.ToString(), new Vector3(xCor, yCor, 0f));
+            if(coin != 0)
+            {
+                double lostCoin = coin * 0.2f;
+                coin = coin - (int)lostCoin;
+                EventHandler.CallLostCoinEvent((int)lostCoin);
+            }
+        }
     }
 
     public void Register()
@@ -779,4 +807,5 @@ public class Player : MonoBehaviour, Save
 
         return SaveObject;
     }
+
 }

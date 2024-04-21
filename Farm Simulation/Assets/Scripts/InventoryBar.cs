@@ -20,6 +20,18 @@ public class InventoryBar : MonoBehaviour
         EventHandler.InventoryEvent -= InventoryUpdate;
     }
 
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            InventoryItemDescription itemDescription = FindObjectOfType<InventoryItemDescription>();
+            if(itemDescription != null)
+            {
+                Destroy(itemDescription.gameObject);
+            }
+        }
+    }
+
     private void InventoryUpdate(InventoryType inventoryType, List<InventoryItem> inventoryList)
     {
         if(inventoryType == InventoryType.Player)

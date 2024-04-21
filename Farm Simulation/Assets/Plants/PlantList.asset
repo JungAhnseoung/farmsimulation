@@ -55,7 +55,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 4590cd3fefdd74b22ae749a122189ece, type: 3}
     - {fileID: 21300000, guid: c5a254db09988c647a895cfcf5573a86, type: 3}
     farmSprite: {fileID: 0}
-    season: 0000000001000000
+    season: 00000000010000000200000003000000
     seedNo: 1001
     plantChangeNo: 1027
     toolNo: ec030000
@@ -105,7 +105,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 0a4318b810b0f467fab50a11f472c746, type: 3}
     - {fileID: 21300000, guid: c5a254db09988c647a895cfcf5573a86, type: 3}
     farmSprite: {fileID: 0}
-    season: 0000000001000000
+    season: 00000000010000000200000003000000
     seedNo: 1009
     plantChangeNo: 1028
     toolNo: ec030000
@@ -126,7 +126,7 @@ MonoBehaviour:
     ageSprite:
     - {fileID: 21300000, guid: c5a254db09988c647a895cfcf5573a86, type: 3}
     farmSprite: {fileID: 0}
-    season: 0000000001000000
+    season: 00000000010000000200000003000000
     seedNo: 1028
     plantChangeNo: 0
     toolNo: ec030000
@@ -168,7 +168,7 @@ MonoBehaviour:
     ageSprite:
     - {fileID: 21300000, guid: 51532cbb9bf104839b6330f0a739b933, type: 3}
     farmSprite: {fileID: 0}
-    season: 000000000100000003000000
+    season: 00000000010000000300000002000000
     seedNo: 1030
     plantChangeNo: 0
     toolNo: f3030000

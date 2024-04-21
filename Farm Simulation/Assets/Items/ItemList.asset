@@ -16,16 +16,17 @@ MonoBehaviour:
   - itemType: 0
     itemNo: 1000
     itemName: Basket
-    itemDescription: A Basket to collect crops.
+    itemDescription: A Basket to collect crops and animals.
     isPickable: 1
     isCarriable: 0
     isEdible: 0
     isDroppable: 0
-    distance: 1
+    distance: 2
     nontiledistance: 2
     itemIcon: {fileID: 21300000, guid: 21f88cda6c810402583055801e6a2c73, type: 3}
     itemSprite: {fileID: 21300000, guid: 21f88cda6c810402583055801e6a2c73, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 1
     itemNo: 1001
     itemName: Needie Seed
@@ -39,6 +40,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 9930d861d3ccf4ddc87536ae85a56425, type: 3}
     itemSprite: {fileID: 21300000, guid: 3979be82862ab4b42be8e0b3222694bc, type: 3}
     sellPrice: 10
+    stamina: 0
   - itemType: 2
     itemNo: 1002
     itemName: Needie Wood
@@ -52,6 +54,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 5809980803ddf45a1aa8df14dbc00394, type: 3}
     itemSprite: {fileID: 21300000, guid: 0d5f887d0ba144b7180f3e33336beac5, type: 3}
     sellPrice: 15
+    stamina: 0
   - itemType: 4
     itemNo: 1003
     itemName: Chair
@@ -65,6 +68,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 35f35fec54071471ea798838348d5913, type: 3}
     itemSprite: {fileID: -397025518, guid: 3bdb6f1370acd4062a47227630afb05d, type: 3}
     sellPrice: 150
+    stamina: 0
   - itemType: 0
     itemNo: 1004
     itemName: Axe
@@ -78,10 +82,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 3714c3e6b5e3d498ebcd06d432b3dd89, type: 3}
     itemSprite: {fileID: 21300000, guid: 3714c3e6b5e3d498ebcd06d432b3dd89, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 2
     itemNo: 1005
     itemName: Grape
-    itemDescription: A grape.
+    itemDescription: A grape. Gain 15 stamina when eaten.
     isPickable: 1
     isCarriable: 1
     isEdible: 1
@@ -91,10 +96,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 567730b76d77440f09c9bb6adee6040f, type: 3}
     itemSprite: {fileID: -1889884627, guid: 24e3edf5cfa4d468fbdeed1f09a965a8, type: 3}
     sellPrice: 70
+    stamina: 15
   - itemType: 1
     itemNo: 1006
     itemName: Grape Seed
-    itemDescription: Seed for growing grape.
+    itemDescription: 'Seed for growing grape. Harvest season : Spring, Summer, Fall'
     isPickable: 1
     isCarriable: 1
     isEdible: 0
@@ -104,6 +110,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 13fd782ac3661413abe57fc16343e499, type: 3}
     itemSprite: {fileID: 21300000, guid: eff80b331cf5c4ca49471d8604c3b52e, type: 3}
     sellPrice: 35
+    stamina: 0
   - itemType: 2
     itemNo: 1007
     itemName: Grass
@@ -117,6 +124,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: e457a28d7c05742a6bcb044458883809, type: 3}
     itemSprite: {fileID: 21300000, guid: e8ebe711ec1de4697a10d8c2f3f39f20, type: 3}
     sellPrice: 10
+    stamina: 0
   - itemType: 0
     itemNo: 1008
     itemName: Hoe
@@ -130,6 +138,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 71ca9227166f34790bb8b1c7948d491f, type: 3}
     itemSprite: {fileID: 21300000, guid: 71ca9227166f34790bb8b1c7948d491f, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 1
     itemNo: 1009
     itemName: Broad Leaf Seed
@@ -143,6 +152,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 1ae82374d0e4445118e47ce07e8426fe, type: 3}
     itemSprite: {fileID: 21300000, guid: 83539708444bc497b8d9f5bba223cc6f, type: 3}
     sellPrice: 10
+    stamina: 0
   - itemType: 2
     itemNo: 1010
     itemName: Broad Leaf Wood
@@ -156,6 +166,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 6bdcabcb3e8684660981c3dbfa135c8d, type: 3}
     itemSprite: {fileID: 21300000, guid: 018bd79f696fb400584536e445976758, type: 3}
     sellPrice: 15
+    stamina: 0
   - itemType: 0
     itemNo: 1011
     itemName: Pickaxe
@@ -169,10 +180,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: ab9788b07a759404293670018c76ec0f, type: 3}
     itemSprite: {fileID: 21300000, guid: ab9788b07a759404293670018c76ec0f, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 2
     itemNo: 1012
     itemName: Pink Radish
-    itemDescription: A pink Radish.
+    itemDescription: A pink radish. Gain 10 stamina when eaten.
     isPickable: 1
     isCarriable: 1
     isEdible: 1
@@ -182,10 +194,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 3fa10b9ef4ceb407f953f7783c0c5ee4, type: 3}
     itemSprite: {fileID: 504974383, guid: ba8cb7102384d418883ef909ed3befd5, type: 3}
     sellPrice: 30
+    stamina: 10
   - itemType: 1
     itemNo: 1013
     itemName: Pink Radish Seed
-    itemDescription: Seed for growing pink radish.
+    itemDescription: 'Seed for growing pink radish. Harvest season : Summer, Fall'
     isPickable: 1
     isCarriable: 1
     isEdible: 0
@@ -195,10 +208,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 2597146da57814c789a59eda5740c9bf, type: 3}
     itemSprite: {fileID: 21300000, guid: 0f5a527a6777043739c58b084887ec12, type: 3}
     sellPrice: 15
+    stamina: 0
   - itemType: 2
     itemNo: 1014
     itemName: Potato
-    itemDescription: A potato.
+    itemDescription: A potato. Gain 15 stamina when eaten.
     isPickable: 1
     isCarriable: 1
     isEdible: 1
@@ -208,6 +222,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 59a2ce6cc735e4cd3a3da1bad8629303, type: 3}
     itemSprite: {fileID: -302366086, guid: bd1655396b777431e85369611fc36aed, type: 3}
     sellPrice: 40
+    stamina: 15
   - itemType: 1
     itemNo: 1015
     itemName: Potato Seed
@@ -221,10 +236,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: f140b8cf7b2cb44c5bf34bb9bb3292f4, type: 3}
     itemSprite: {fileID: 21300000, guid: 712efb3c5425e4d62aa03accb5b7a498, type: 3}
     sellPrice: 20
+    stamina: 0
   - itemType: 2
     itemNo: 1016
     itemName: Pumpkin
-    itemDescription: A Pumpkin.
+    itemDescription: A pumpkin. Gain 20 stamina when eaten.
     isPickable: 1
     isCarriable: 1
     isEdible: 1
@@ -234,6 +250,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 709947d08509b408db26e4136a0232ee, type: 3}
     itemSprite: {fileID: 21300000, guid: a986aa660462947b1826545d17ad6691, type: 3}
     sellPrice: 60
+    stamina: 20
   - itemType: 2
     itemNo: 1017
     itemName: Pumpkin Seed
@@ -247,6 +264,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: a4cf1d099c0994049a38e73bf9d629dd, type: 3}
     itemSprite: {fileID: 21300000, guid: 738078985c017481f8d443cf821e26b5, type: 3}
     sellPrice: 30
+    stamina: 0
   - itemType: 0
     itemNo: 1018
     itemName: Scythe
@@ -260,6 +278,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 9aae36af8a3474f72a99e04af71b7044, type: 3}
     itemSprite: {fileID: 21300000, guid: 9aae36af8a3474f72a99e04af71b7044, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 2
     itemNo: 1019
     itemName: Stone
@@ -273,6 +292,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 0d1bd60a4df28461a802344fdf5d9478, type: 3}
     itemSprite: {fileID: 21300000, guid: 45a3ea64377134f4299e757a1becb6df, type: 3}
     sellPrice: 10
+    stamina: 0
   - itemType: 4
     itemNo: 1020
     itemName: Table
@@ -286,10 +306,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 6002a3f97c68f43619712d1cdc65bba6, type: 3}
     itemSprite: {fileID: 1952738962, guid: 3bdb6f1370acd4062a47227630afb05d, type: 3}
     sellPrice: 250
+    stamina: 0
   - itemType: 2
     itemNo: 1021
     itemName: Turnip
-    itemDescription: A turnip.
+    itemDescription: A turnip. Gain 10 stamina when eaten.
     isPickable: 1
     isCarriable: 1
     isEdible: 1
@@ -299,10 +320,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: ead453a0ee8ee49329522ee30394ee3a, type: 3}
     itemSprite: {fileID: -2109362084, guid: 87430ba1a26c4408191e4027950e7133, type: 3}
     sellPrice: 20
+    stamina: 10
   - itemType: 1
     itemNo: 1022
     itemName: Turnip Seed
-    itemDescription: Seed for growing turnip.
+    itemDescription: 'Seed for growing turnip. Harvest Season : Spring, Summer. Fall'
     isPickable: 1
     isCarriable: 1
     isEdible: 0
@@ -312,6 +334,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 0689ebc0f067f41fa98586e5b574896f, type: 3}
     itemSprite: {fileID: 21300000, guid: 58c6799e544ae49a48186335b7f16ba0, type: 3}
     sellPrice: 10
+    stamina: 0
   - itemType: 0
     itemNo: 1023
     itemName: Watering Can
@@ -325,6 +348,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 5b98b5b289f8549f9bbd017e5f0aa5c7, type: 3}
     itemSprite: {fileID: 21300000, guid: 5b98b5b289f8549f9bbd017e5f0aa5c7, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 3
     itemNo: 1024
     itemName: Grass01
@@ -338,6 +362,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 9ae5a331348064d73aa91a952b9e1a41, type: 3}
     itemSprite: {fileID: 21300000, guid: 9ae5a331348064d73aa91a952b9e1a41, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 3
     itemNo: 1025
     itemName: Grass02
@@ -351,6 +376,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: e6647f7a307d24b65957f4ef34c39562, type: 3}
     itemSprite: {fileID: 21300000, guid: e6647f7a307d24b65957f4ef34c39562, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 3
     itemNo: 1026
     itemName: Grass03
@@ -364,6 +390,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 0c055f09a64a74805ad18c1f0b134fec, type: 3}
     itemSprite: {fileID: 21300000, guid: 0c055f09a64a74805ad18c1f0b134fec, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 1
     itemNo: 1027
     itemName: Needie Tree Trunk
@@ -377,6 +404,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: c00b9352baa0c44639d70f0e2a96a856, type: 3}
     itemSprite: {fileID: 21300000, guid: c00b9352baa0c44639d70f0e2a96a856, type: 3}
     sellPrice: 1
+    stamina: 0
   - itemType: 1
     itemNo: 1028
     itemName: Broad Leaf Tree Trunk
@@ -390,6 +418,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: ab3861d4b685d4d048cd7cd1c18e9574, type: 3}
     itemSprite: {fileID: 21300000, guid: ab3861d4b685d4d048cd7cd1c18e9574, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 1
     itemNo: 1029
     itemName: Rock01
@@ -403,6 +432,7 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: b40fde803efab463bbc950e4d29ee5ce, type: 3}
     itemSprite: {fileID: 21300000, guid: b40fde803efab463bbc950e4d29ee5ce, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 1
     itemNo: 1030
     itemName: Rock02
@@ -416,10 +446,11 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 51532cbb9bf104839b6330f0a739b933, type: 3}
     itemSprite: {fileID: 21300000, guid: 51532cbb9bf104839b6330f0a739b933, type: 3}
     sellPrice: 0
+    stamina: 0
   - itemType: 4
     itemNo: 1031
-    itemName: Cat
-    itemDescription: A cat.
+    itemName: Yellow Cat
+    itemDescription: A yellow cat.
     isPickable: 0
     isCarriable: 0
     isEdible: 0
@@ -429,3 +460,18 @@ MonoBehaviour:
     itemIcon: {fileID: 1741575186, guid: 43bfa2b184972d548a99ff0ee9ab7a9f, type: 3}
     itemSprite: {fileID: 1741575186, guid: 43bfa2b184972d548a99ff0ee9ab7a9f, type: 3}
     sellPrice: 0
+    stamina: 0
+  - itemType: 4
+    itemNo: 1032
+    itemName: White Cat
+    itemDescription: A white cat.
+    isPickable: 0
+    isCarriable: 0
+    isEdible: 0
+    isDroppable: 1
+    distance: 1
+    nontiledistance: 0
+    itemIcon: {fileID: 1193388614, guid: db733f50b3f2f334092e5efcc17b4916, type: 3}
+    itemSprite: {fileID: 1193388614, guid: db733f50b3f2f334092e5efcc17b4916, type: 3}
+    sellPrice: 0
+    stamina: 0

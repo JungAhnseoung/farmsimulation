@@ -36,5 +36,6 @@ public class ItemInfo
     public Sprite itemIcon;
     public Sprite itemSprite;
     public int sellPrice;
+    public int stamina;
 }
 

@@ -55,6 +55,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         indicator = FindObjectOfType<Indicator>();
     }
 
+
     public void Loaded()
     {
         itemGroup = GameObject.FindGameObjectWithTag("ItemsGroup").transform;
@@ -82,7 +83,8 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterH
                 {
                     eatCanvas.SetActive(true);
                     EatUI.eatText.text = ("Do you want to eat " + itemInfo.itemName + "?");
-                    InventoryManager.RemoveItemFromInventory(InventoryType.Player, itemInfo.itemNo);
+                    EatUI.increaseStamina = itemInfo.stamina;
+                    EatUI.itemNo = itemInfo.itemNo;
                 }
                 RemoveSelectedItem();
             }
