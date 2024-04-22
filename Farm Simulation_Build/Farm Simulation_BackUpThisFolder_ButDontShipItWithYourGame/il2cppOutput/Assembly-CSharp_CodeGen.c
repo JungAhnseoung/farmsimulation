@@ -12,25 +12,25 @@
 
 
 
+extern void Animal_OnEnable_m776B262D608753B8FC34DBF5B2EB1C5EC1CA2419 (void);
+extern void Animal_OnDisable_mB87EABFABAC2626078DEB6A791409A3DFB281627 (void);
 extern void Animal_Start_m4BE191F91337338271944C0B41930FDC4D45BFE9 (void);
 extern void Animal_FixedUpdate_m975299B4B7C16E255D197232D4335DFA4642B5C4 (void);
 extern void Animal_OnTriggerEnter2D_mEA2B1492D0E99D82E60968593C0C062C3FAF2B15 (void);
 extern void Animal_InitalizeCollider_mDF07F1B945E500997BA2DDDE2C8A258A5BC45AEB (void);
-extern void Animal_SpawnAnimalItem_mDD6B3CA2732B3DA113A0DB4B1D083E07F725978C (void);
+extern void Animal_SpawnAnimalItem_m302DC9B3938656C900E6B6F584726C1BDE0F80B4 (void);
 extern void Animal_RandomAnimation_mD2CC9B5D1E56C33905BF0051EB71C12EBC4CA60C (void);
 extern void Animal__ctor_mA768854D68A2A6DB5590DFE26E3E461981F98D51 (void);
-extern void U3CRandomAnimationU3Ed__17__ctor_m784EB6625CBA698F4DB39A283A220305B4BC9AB7 (void);
-extern void U3CRandomAnimationU3Ed__17_System_IDisposable_Dispose_m8211922C9DB028CD62108E4B417EA43B98CBF14F (void);
-extern void U3CRandomAnimationU3Ed__17_MoveNext_m453B86F224384A266414AA0D9B384529C7C35C21 (void);
-extern void U3CRandomAnimationU3Ed__17_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF6C626645AD71346B82E3BF1DF16B567AACB719C (void);
-extern void U3CRandomAnimationU3Ed__17_System_Collections_IEnumerator_Reset_mFF61F3A51775C9C86D9352CD50790803E278A7BF (void);
-extern void U3CRandomAnimationU3Ed__17_System_Collections_IEnumerator_get_Current_m826F18F061F3513314DBEE4F31E2F4A29BEB2839 (void);
-extern void U3CSpawnAnimalItemU3Ed__16__ctor_m08295BB9E0171783964B8113CCDC8060698C9D99 (void);
-extern void U3CSpawnAnimalItemU3Ed__16_System_IDisposable_Dispose_m0A0190D5F2736CED8054F02DCB7C52589DA67C27 (void);
-extern void U3CSpawnAnimalItemU3Ed__16_MoveNext_m1E207561416511A3CBB66708BC49255970EE195B (void);
-extern void U3CSpawnAnimalItemU3Ed__16_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m00AD3EB7D2FBA7D9932A17DEA8BFE26D9DC9E553 (void);
-extern void U3CSpawnAnimalItemU3Ed__16_System_Collections_IEnumerator_Reset_m3B14510D237822929BEEEF01CC86D6DF0FD8DB54 (void);
-extern void U3CSpawnAnimalItemU3Ed__16_System_Collections_IEnumerator_get_Current_m64C5CC0DBD6F73764EC8E65B687E32262C8DABF3 (void);
+extern void U3CRandomAnimationU3Ed__21__ctor_m79B20D7B9F8863285716484A4DC4843BDA409C61 (void);
+extern void U3CRandomAnimationU3Ed__21_System_IDisposable_Dispose_m10D35189BA56C69DFCB427B222657B2A01059E68 (void);
+extern void U3CRandomAnimationU3Ed__21_MoveNext_m126DA67741173508F8A62647DB66E07322DC96DB (void);
+extern void U3CRandomAnimationU3Ed__21_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m79A65C6A46E4F10B70C9A518EEF2749E83890268 (void);
+extern void U3CRandomAnimationU3Ed__21_System_Collections_IEnumerator_Reset_m9D945F46236D4AACF62C3118B2A2894CE23FD1AB (void);
+extern void U3CRandomAnimationU3Ed__21_System_Collections_IEnumerator_get_Current_mE25CB5BF24A779818ED45A5802D508B746C32F61 (void);
+extern void AnimalManager_OnEnable_m22F3C67252E646CCB0CAC6A4AE40191FD0947504 (void);
+extern void AnimalManager_OnDisable_m91B14F724EEF50D2538C036EF839A0E39502F360 (void);
+extern void AnimalManager_SetItemReady_m8D38B8182AA1D91F1E94525CED53E3F089003F69 (void);
+extern void AnimalManager__ctor_m6C9118AD049D75FE5DD92E8B20EDFB308A436CD3 (void);
 extern void AnimationAttribute__ctor_m0520938C72C38AAC0EA6C897D133E6131C9DBAB8 (void);
 extern void CharacterDetailAttribute__ctor_mFF8B71294694EF2D9C40A9FCAE1903BA7C96D188 (void);
 extern void AnimationOverride_Start_mFC2EDA00BD41386B372F35811E0BA8EAF4CBEF1F (void);
@@ -150,6 +150,9 @@ extern void EventHandler_add_LateNightEvent_mA1609474A87013FA1B372BD1E525B107586
 extern void EventHandler_remove_LateNightEvent_m8E0EC9758392E17AE2128D380A343A6746134E10 (void);
 extern void EventHandler_add_LostCoinEvent_mFAF804C368F19DFF2970463CCC36383BCE4FF98A (void);
 extern void EventHandler_remove_LostCoinEvent_m8F511C03F67793B71FF6B00FFA7D222010CF3047 (void);
+extern void EventHandler_add_AnimalItemDropEvent_m6CFF1A8D23A716D3E6E365DE9D6D9E96ADF3391A (void);
+extern void EventHandler_remove_AnimalItemDropEvent_mF34D52710324B10294B7DAD050461EEAC10BDACC (void);
+extern void EventHandler_CallAnimalItemDropEvent_m368DBE7DAFD4E88152956F23FDC15585BF527ADE (void);
 extern void EventHandler_CallSeasonPass_mC2D7434C390F8AE885BDA058B659FCA7E8EE91EA (void);
 extern void EventHandler_CallYearPass_m0A5FF342DA1968CBA31F63A8270C9823D3E98B55 (void);
 extern void EventHandler_CallDayPass_mAF8AC55C5A5792E456BCB393110ED72F0C321D7B (void);
@@ -394,7 +397,7 @@ extern void Player_UseWateringCan_mC225E68FF8BCF6FA9972CB1815669FDEFFCA748A (voi
 extern void Player_UseHoe_m68B1CEC2EE2AB3DE1EFC9E59E15A260771BB4DE6 (void);
 extern void Player_GetCenter_m5E2383DDC195DC6AB23B95E0378C3E51F2737531 (void);
 extern void Player_OnTriggerEnter2D_m6E01BC069CDBBED27A57ABF1E3A77B49504CD433 (void);
-extern void Player_PickUp_m7DDFCF103004A4E74E8477B4AD9DF736F302090C (void);
+extern void Player_PickUp_m52D2A3CAEEB8E149646B3406101F7C0D5439E1A0 (void);
 extern void Player_PassOut_m79994BA3D72314258F8DB7E0D41E0D9D5E723033 (void);
 extern void Player_Register_m1B84CEF88FB6BE84FB0EFA318D6FC17A4B267132 (void);
 extern void Player_Unregister_mAF6C89648AC8BA929C322B3EBDEFC160CDB4BC61 (void);
@@ -636,27 +639,27 @@ extern void TimeManager__ctor_m6694D6AACB3E1D767E0EB7D0E2656EE808204877 (void);
 extern void TimeManager__cctor_mFBE85471AA1E7535971D45938AED79AA83ABA59D (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[637] = 
+static Il2CppMethodPointer s_methodPointers[640] = 
 {
+	Animal_OnEnable_m776B262D608753B8FC34DBF5B2EB1C5EC1CA2419,
+	Animal_OnDisable_mB87EABFABAC2626078DEB6A791409A3DFB281627,
 	Animal_Start_m4BE191F91337338271944C0B41930FDC4D45BFE9,
 	Animal_FixedUpdate_m975299B4B7C16E255D197232D4335DFA4642B5C4,
 	Animal_OnTriggerEnter2D_mEA2B1492D0E99D82E60968593C0C062C3FAF2B15,
 	Animal_InitalizeCollider_mDF07F1B945E500997BA2DDDE2C8A258A5BC45AEB,
-	Animal_SpawnAnimalItem_mDD6B3CA2732B3DA113A0DB4B1D083E07F725978C,
+	Animal_SpawnAnimalItem_m302DC9B3938656C900E6B6F584726C1BDE0F80B4,
 	Animal_RandomAnimation_mD2CC9B5D1E56C33905BF0051EB71C12EBC4CA60C,
 	Animal__ctor_mA768854D68A2A6DB5590DFE26E3E461981F98D51,
-	U3CRandomAnimationU3Ed__17__ctor_m784EB6625CBA698F4DB39A283A220305B4BC9AB7,
-	U3CRandomAnimationU3Ed__17_System_IDisposable_Dispose_m8211922C9DB028CD62108E4B417EA43B98CBF14F,
-	U3CRandomAnimationU3Ed__17_MoveNext_m453B86F224384A266414AA0D9B384529C7C35C21,
-	U3CRandomAnimationU3Ed__17_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF6C626645AD71346B82E3BF1DF16B567AACB719C,
-	U3CRandomAnimationU3Ed__17_System_Collections_IEnumerator_Reset_mFF61F3A51775C9C86D9352CD50790803E278A7BF,
-	U3CRandomAnimationU3Ed__17_System_Collections_IEnumerator_get_Current_m826F18F061F3513314DBEE4F31E2F4A29BEB2839,
-	U3CSpawnAnimalItemU3Ed__16__ctor_m08295BB9E0171783964B8113CCDC8060698C9D99,
-	U3CSpawnAnimalItemU3Ed__16_System_IDisposable_Dispose_m0A0190D5F2736CED8054F02DCB7C52589DA67C27,
-	U3CSpawnAnimalItemU3Ed__16_MoveNext_m1E207561416511A3CBB66708BC49255970EE195B,
-	U3CSpawnAnimalItemU3Ed__16_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m00AD3EB7D2FBA7D9932A17DEA8BFE26D9DC9E553,
-	U3CSpawnAnimalItemU3Ed__16_System_Collections_IEnumerator_Reset_m3B14510D237822929BEEEF01CC86D6DF0FD8DB54,
-	U3CSpawnAnimalItemU3Ed__16_System_Collections_IEnumerator_get_Current_m64C5CC0DBD6F73764EC8E65B687E32262C8DABF3,
+	U3CRandomAnimationU3Ed__21__ctor_m79B20D7B9F8863285716484A4DC4843BDA409C61,
+	U3CRandomAnimationU3Ed__21_System_IDisposable_Dispose_m10D35189BA56C69DFCB427B222657B2A01059E68,
+	U3CRandomAnimationU3Ed__21_MoveNext_m126DA67741173508F8A62647DB66E07322DC96DB,
+	U3CRandomAnimationU3Ed__21_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m79A65C6A46E4F10B70C9A518EEF2749E83890268,
+	U3CRandomAnimationU3Ed__21_System_Collections_IEnumerator_Reset_m9D945F46236D4AACF62C3118B2A2894CE23FD1AB,
+	U3CRandomAnimationU3Ed__21_System_Collections_IEnumerator_get_Current_mE25CB5BF24A779818ED45A5802D508B746C32F61,
+	AnimalManager_OnEnable_m22F3C67252E646CCB0CAC6A4AE40191FD0947504,
+	AnimalManager_OnDisable_m91B14F724EEF50D2538C036EF839A0E39502F360,
+	AnimalManager_SetItemReady_m8D38B8182AA1D91F1E94525CED53E3F089003F69,
+	AnimalManager__ctor_m6C9118AD049D75FE5DD92E8B20EDFB308A436CD3,
 	AnimationAttribute__ctor_m0520938C72C38AAC0EA6C897D133E6131C9DBAB8,
 	CharacterDetailAttribute__ctor_mFF8B71294694EF2D9C40A9FCAE1903BA7C96D188,
 	AnimationOverride_Start_mFC2EDA00BD41386B372F35811E0BA8EAF4CBEF1F,
@@ -776,6 +779,9 @@ static Il2CppMethodPointer s_methodPointers[637] =
 	EventHandler_remove_LateNightEvent_m8E0EC9758392E17AE2128D380A343A6746134E10,
 	EventHandler_add_LostCoinEvent_mFAF804C368F19DFF2970463CCC36383BCE4FF98A,
 	EventHandler_remove_LostCoinEvent_m8F511C03F67793B71FF6B00FFA7D222010CF3047,
+	EventHandler_add_AnimalItemDropEvent_m6CFF1A8D23A716D3E6E365DE9D6D9E96ADF3391A,
+	EventHandler_remove_AnimalItemDropEvent_mF34D52710324B10294B7DAD050461EEAC10BDACC,
+	EventHandler_CallAnimalItemDropEvent_m368DBE7DAFD4E88152956F23FDC15585BF527ADE,
 	EventHandler_CallSeasonPass_mC2D7434C390F8AE885BDA058B659FCA7E8EE91EA,
 	EventHandler_CallYearPass_m0A5FF342DA1968CBA31F63A8270C9823D3E98B55,
 	EventHandler_CallDayPass_mAF8AC55C5A5792E456BCB393110ED72F0C321D7B,
@@ -1023,7 +1029,7 @@ static Il2CppMethodPointer s_methodPointers[637] =
 	Player_UseHoe_m68B1CEC2EE2AB3DE1EFC9E59E15A260771BB4DE6,
 	Player_GetCenter_m5E2383DDC195DC6AB23B95E0378C3E51F2737531,
 	Player_OnTriggerEnter2D_m6E01BC069CDBBED27A57ABF1E3A77B49504CD433,
-	Player_PickUp_m7DDFCF103004A4E74E8477B4AD9DF736F302090C,
+	Player_PickUp_m52D2A3CAEEB8E149646B3406101F7C0D5439E1A0,
 	Player_PassOut_m79994BA3D72314258F8DB7E0D41E0D9D5E723033,
 	Player_Register_m1B84CEF88FB6BE84FB0EFA318D6FC17A4B267132,
 	Player_Unregister_mAF6C89648AC8BA929C322B3EBDEFC160CDB4BC61,
@@ -1281,13 +1287,15 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[1] =
 {
 	{ 0x06000015, CharacterDetailAttribute__ctor_mFF8B71294694EF2D9C40A9FCAE1903BA7C96D188_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[637] = 
+static const int32_t s_InvokerIndices[640] = 
 {
+	7713,
+	7713,
 	7713,
 	7713,
 	6053,
 	7713,
-	7572,
+	7713,
 	7572,
 	7713,
 	6017,
@@ -1296,12 +1304,10 @@ static const int32_t s_InvokerIndices[637] =
 	7572,
 	7713,
 	7572,
-	6017,
 	7713,
-	7466,
-	7572,
 	7713,
-	7572,
+	176,
+	7713,
 	7713,
 	3014,
 	7713,
@@ -1421,6 +1427,9 @@ static const int32_t s_InvokerIndices[637] =
 	13412,
 	13412,
 	13412,
+	13412,
+	13412,
+	14284,
 	8103,
 	8103,
 	8103,
@@ -1668,7 +1677,7 @@ static const int32_t s_InvokerIndices[637] =
 	2537,
 	7702,
 	6053,
-	5341,
+	2526,
 	7713,
 	7713,
 	7713,
@@ -1923,9 +1932,9 @@ static const int32_t s_InvokerIndices[637] =
 };
 static const Il2CppTokenRangePair s_rgctxIndices[3] = 
 {
-	{ 0x06000149, { 0, 7 } },
-	{ 0x0600014A, { 7, 4 } },
-	{ 0x0600014B, { 11, 7 } },
+	{ 0x0600014C, { 0, 7 } },
+	{ 0x0600014D, { 7, 4 } },
+	{ 0x0600014E, { 11, 7 } },
 };
 extern const uint32_t g_rgctx_List_1_tA83D4C71C29964D6DAF31F6854E75BBA498AD876;
 extern const uint32_t g_rgctx_List_1__ctor_mCAD80711EC0CE72E4AFFE9F7C0057CDA00BCF8E6;
@@ -1970,7 +1979,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	637,
+	640,
 	s_methodPointers,
 	1,
 	s_adjustorThunks,

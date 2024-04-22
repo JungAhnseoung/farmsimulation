@@ -684,7 +684,7 @@ public class Player : MonoBehaviour, Save
             {
                 if (itemInfo.itemType == ItemType.Goods || itemInfo.itemType == ItemType.Seed || itemInfo.itemType == ItemType.Tool)
                 {
-                    StartCoroutine(PickUp(collision));
+                    StartCoroutine(PickUp(collision, itemInfo));
                     InventoryManager.AddItemInInventory(InventoryType.Player, item);
                 }
             }
@@ -692,9 +692,9 @@ public class Player : MonoBehaviour, Save
         }
     }
 
-    private IEnumerator PickUp(Collider2D collision)
+    private IEnumerator PickUp(Collider2D collision, ItemInfo itemInfo)
     {
-        yield return new WaitForSeconds(0.3f);
+        if(itemInfo.itemType != ItemType.Tool) yield return new WaitForSeconds(0.3f);
         if(collision != null) Destroy(collision.gameObject);
     }
 

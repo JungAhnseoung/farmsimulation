@@ -67,6 +67,11 @@ public class SceneController : MonoBehaviour
         yield return instance.StartCoroutine(FadeOut(0f));
         EventHandler.CallAfterFadeIn();
 
+        if (scene == SceneType.Farm.ToString() && AnimalManager.isItemReady)
+        {
+            EventHandler.CallAnimalItemDropEvent();
+        }
+
     }
 
     private static IEnumerator FadeOut(float alp)

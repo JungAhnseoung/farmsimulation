@@ -22,7 +22,6 @@ public class Cloud : MonoBehaviour
     private void Start()
     {
         startLocation = transform.position;
-        Debug.Log("Start " + transform.position.x + " " + transform.position.y);
     }
 
     private void MoveCloud(Season season, int year, int day, string weekDay, int hour, int min, int sec)
@@ -33,6 +32,5 @@ public class Cloud : MonoBehaviour
     private void InitCloudLocation(Season season, int year, int day, string weekDay, int hour, int min, int sec)
     {
         transform.position = startLocation;
-        Debug.Log("Init " + transform.position.x);
     }
 }

@@ -274,6 +274,7 @@ struct PlayableBindingU5BU5D_tC50C3F27A8E4246488F7A5998CAABAC4811A92CD;
 struct RaycastHitU5BU5D_t008B8309DE422FE7567068D743D68054D5EBF1A8;
 struct RaycastHit2DU5BU5D_t28739C686586993113318B63C84927FD43063FC7;
 struct RichTextTagAttributeU5BU5D_tEE9D071B3246F23742DBF4226567620BCBB24A14;
+struct RuntimeAnimatorControllerU5BU5D_t7DFA576B3E35967439CC9CAA5ED26D444C2A9203;
 struct SeasonU5BU5D_tA62C2942A67D674538545B4657482B1109E25F4E;
 struct SelectableU5BU5D_t4160E135F02A40F75A63F787D36F31FEC6FE91A9;
 struct SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C;
@@ -434,7 +435,6 @@ struct RegexRunner_t4D255CE33E7985A04AF21F0B57984D6C65615B3B;
 struct RegexRunnerFactory_t72373B672C7D8785F63516DDD88834F286AF41E7;
 struct RenderTexture_tBA90C4C3AD9EECCFDDCC632D97C29FAB80D60D27;
 struct Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F;
-struct RuntimeAnimatorController_t6F7C753402B42EC23C163099CF935C5E0D7A7254;
 struct SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6;
 struct SaveGame_t0FD07B6818A5BC5CB07640AEE8F0F47ED2D8D8C9;
 struct SaveObject_tC0C4D7E1725A36CAFA5396308BF4F27711D4BEB8;
@@ -1107,6 +1107,7 @@ struct ItemInfo_t37B56F3787E017365EDC81C393731505508AA4E6  : public RuntimeObjec
 	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___itemIcon;
 	Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___itemSprite;
 	int32_t ___sellPrice;
+	int32_t ___stamina;
 };
 struct MatchTargetFieldConstants_t07C2FAD424736E6B40B0764A78AC93A64983D89B  : public RuntimeObject
 {
@@ -1721,13 +1722,7 @@ struct _AndroidJNIHelper_tA796944DDB1B1459DF68C9FFA518F452C81364F3  : public Run
 struct __Il2CppComDelegate_tD0DD2BBA6AC8F151D32B6DFD02F6BDA339F8DC4D  : public Il2CppComObject
 {
 };
-struct U3CRandomAnimationU3Ed__17_t95BA11E4C6B8BC97B5F955F22E203B9E5A9A7774  : public RuntimeObject
-{
-	int32_t ___U3CU3E1__state;
-	RuntimeObject* ___U3CU3E2__current;
-	Animal_t99E671E1634332CBB1AE192B404B995A8F5E3FBF* ___U3CU3E4__this;
-};
-struct U3CSpawnAnimalItemU3Ed__16_t16C5E08456BEA6A24B48A9972A65151EBC0386FD  : public RuntimeObject
+struct U3CRandomAnimationU3Ed__21_tB50E6D3B7C891DCDBAD31C83FD04F2D1E2E200A6  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -1855,6 +1850,7 @@ struct U3CPickUpU3Ed__85_t1F25DCAD9D582A7065D7243265D1931C30581D41  : public Run
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
+	ItemInfo_t37B56F3787E017365EDC81C393731505508AA4E6* ___itemInfo;
 	Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* ___collision;
 };
 struct ButtonState_tB671FC9C48F167DBC1CDAFEB53C373D8567AE503  : public RuntimeObject
@@ -3796,7 +3792,7 @@ struct int2_tF4AC25F87943DC0B2BB3456B0B919B3B42A9432A
 	int32_t ___y;
 };
 #pragma pack(push, tp, 1)
-struct __StaticArrayInitTypeSizeU3D1173_t7DADAD14A397DC52C1EB5F0DFCF01DE32B8A7608 
+struct __StaticArrayInitTypeSizeU3D1192_tDCA3E4CB3ACF9A5ECCEB70A9AAED737ACB38EFF1 
 {
 	union
 	{
@@ -3806,12 +3802,12 @@ struct __StaticArrayInitTypeSizeU3D1173_t7DADAD14A397DC52C1EB5F0DFCF01DE32B8A760
 			{
 			};
 		};
-		uint8_t __StaticArrayInitTypeSizeU3D1173_t7DADAD14A397DC52C1EB5F0DFCF01DE32B8A7608__padding[1173];
+		uint8_t __StaticArrayInitTypeSizeU3D1192_tDCA3E4CB3ACF9A5ECCEB70A9AAED737ACB38EFF1__padding[1192];
 	};
 };
 #pragma pack(pop, tp)
 #pragma pack(push, tp, 1)
-struct __StaticArrayInitTypeSizeU3D2126_tC61DAB860216855A5A0F82865E9DE7CC955C35C8 
+struct __StaticArrayInitTypeSizeU3D2166_tADAA4E0A509B281F41434482F1FB9A5E719DE787 
 {
 	union
 	{
@@ -3821,7 +3817,7 @@ struct __StaticArrayInitTypeSizeU3D2126_tC61DAB860216855A5A0F82865E9DE7CC955C35C
 			{
 			};
 		};
-		uint8_t __StaticArrayInitTypeSizeU3D2126_tC61DAB860216855A5A0F82865E9DE7CC955C35C8__padding[2126];
+		uint8_t __StaticArrayInitTypeSizeU3D2166_tADAA4E0A509B281F41434482F1FB9A5E719DE787__padding[2166];
 	};
 };
 #pragma pack(pop, tp)
@@ -8234,6 +8230,11 @@ struct Animal_t99E671E1634332CBB1AE192B404B995A8F5E3FBF  : public MonoBehaviour_
 	bool ___isMovingLeft;
 	bool ___isMoving;
 	float ___speed;
+	bool ___isInAnimalZone;
+	int32_t ___itemNo;
+};
+struct AnimalManager_t52AA159972F0F3246AF726BA557164337D3315C5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
 };
 struct AnimationOverride_tDEF1A068FFC109D37BBB8ED3AADA35D17851271D  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -8461,7 +8462,7 @@ struct Item_tFAF77888D49883A321EB596A7D93CB5615D37E95  : public MonoBehaviour_t5
 	SpriteRenderer_t1DD7FE258F072E1FA87D6577BA27225892B8047B* ___spriteRenderer;
 	BoxCollider2D_tF860C7737FFB062CEC06577E0CD8364EEC1D4EDA* ___boxCollider;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___shadow;
-	RuntimeAnimatorController_t6F7C753402B42EC23C163099CF935C5E0D7A7254* ___animationController;
+	RuntimeAnimatorControllerU5BU5D_t7DFA576B3E35967439CC9CAA5ED26D444C2A9203* ___animationControllers;
 };
 struct ItemSave_t1FCB75539F872094EBDA4CEDF97DE6B513F2879F  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -9057,8 +9058,8 @@ struct TouchInputModule_t154B7CF685F02D5B9529572B1A96EBD75AAA945C  : public Poin
 };
 struct U3CPrivateImplementationDetailsU3E_t0F5473E849A5A5185A9F4C5246F0C32816C49FCA_StaticFields
 {
-	__StaticArrayInitTypeSizeU3D2126_tC61DAB860216855A5A0F82865E9DE7CC955C35C8 ___18DF30CB64D3371CEE5E0984EB38BAD155F62F9A8F84A33AF286805082BC5A77;
-	__StaticArrayInitTypeSizeU3D1173_t7DADAD14A397DC52C1EB5F0DFCF01DE32B8A7608 ___82EF938CDD207598C6D5C180D18E314DB8DFB6824DB04D152A4A1E074A05B6CC;
+	__StaticArrayInitTypeSizeU3D2166_tADAA4E0A509B281F41434482F1FB9A5E719DE787 ___4D0000FD775B9D96E9D08DD198B83A6EF1487BC0CB5A89D273C346B63CB676FB;
+	__StaticArrayInitTypeSizeU3D1192_tDCA3E4CB3ACF9A5ECCEB70A9AAED737ACB38EFF1 ___EA944FAA63100EC2C4748FF570D687706DD94B4BEB8E098A4FE97E4B5FE2E391;
 };
 struct U3CPrivateImplementationDetailsU3E_t56F624E1051A2E261613B6A81CA2333397F49CB3_StaticFields
 {
@@ -9143,6 +9144,7 @@ struct EventHandler_t103D601EB390BAC7D44BB67D748FBD62D50CA6A4_StaticFields
 	Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___StaminaEvent;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___LateNightEvent;
 	Action_1_tD69A6DC9FBE94131E52F5A73B2A9D4AB51EEC404* ___LostCoinEvent;
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___AnimalItemDropEvent;
 };
 struct ExecuteEvents_t74DCF8B83743EE2773ACF182344612A048E2CC59_StaticFields
 {
@@ -9963,6 +9965,10 @@ struct TrackAsset_t31E19BE900C90F6616C0D337652C8614CD833B96_StaticFields
 	TrackAssetU5BU5D_tE6935AFD32D0BE4B0C69D1CCE96B55D383BCF88C* ___s_EmptyCache;
 	Dictionary_2_tF0368534E8881FC0469B58E4901741C5B0CC1D79* ___s_TrackBindingTypeAttributeCache;
 };
+struct AnimalManager_t52AA159972F0F3246AF726BA557164337D3315C5_StaticFields
+{
+	bool ___isItemReady;
+};
 struct AnimationTrack_tBE37C239976A84F0A2E6BA3B77263B4F44BB1359_StaticFields
 {
 	Queue_1_tED3A82CB4024BD256422C3EF148E0EDAFDFC852A* ___s_CachedQueue;
@@ -9978,6 +9984,8 @@ struct ChestUI_tF6A857760387BBB0970C0C99E9F1D8EAE7A1CC2E_StaticFields
 struct EatUI_t81B7B7D0E06D598A79C2B3891681B16B8EE1A6AA_StaticFields
 {
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___eatText;
+	int32_t ___increaseStamina;
+	int32_t ___itemNo;
 };
 struct GameMenuManager_t4EFB562831C781235DFA17A401712B864FE07308_StaticFields
 {
@@ -11027,11 +11035,11 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize5841 = { sizeof(U3CPrivateIm
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5842;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize5842 = { sizeof(U3CModuleU3E_tBB65183F1134474D09FF49B95625D25472B9BA8B), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5843;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize5843 = { sizeof(U3CRandomAnimationU3Ed__17_t95BA11E4C6B8BC97B5F955F22E203B9E5A9A7774), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize5843 = { sizeof(U3CRandomAnimationU3Ed__21_tB50E6D3B7C891DCDBAD31C83FD04F2D1E2E200A6), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5844;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize5844 = { sizeof(U3CSpawnAnimalItemU3Ed__16_t16C5E08456BEA6A24B48A9972A65151EBC0386FD), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize5844 = { sizeof(Animal_t99E671E1634332CBB1AE192B404B995A8F5E3FBF), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5845;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize5845 = { sizeof(Animal_t99E671E1634332CBB1AE192B404B995A8F5E3FBF), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize5845 = { sizeof(AnimalManager_t52AA159972F0F3246AF726BA557164337D3315C5), -1, sizeof(AnimalManager_t52AA159972F0F3246AF726BA557164337D3315C5_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5846;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize5846 = { sizeof(AnimationAttribute_t75547CC9C00F074A2FA4699387E60801E39ACA9B), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5847;
@@ -11231,9 +11239,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize5943 = { sizeof(MonoScriptDa
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5944;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize5944 = { sizeof(UnitySourceGeneratedAssemblyMonoScriptTypes_v1_tC95F24D0C6E6B77389433852BB389F39C692926E), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5945;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize5945 = { sizeof(__StaticArrayInitTypeSizeU3D1173_t7DADAD14A397DC52C1EB5F0DFCF01DE32B8A7608)+ sizeof(RuntimeObject), sizeof(__StaticArrayInitTypeSizeU3D1173_t7DADAD14A397DC52C1EB5F0DFCF01DE32B8A7608), 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize5945 = { sizeof(__StaticArrayInitTypeSizeU3D1192_tDCA3E4CB3ACF9A5ECCEB70A9AAED737ACB38EFF1)+ sizeof(RuntimeObject), sizeof(__StaticArrayInitTypeSizeU3D1192_tDCA3E4CB3ACF9A5ECCEB70A9AAED737ACB38EFF1), 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5946;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize5946 = { sizeof(__StaticArrayInitTypeSizeU3D2126_tC61DAB860216855A5A0F82865E9DE7CC955C35C8)+ sizeof(RuntimeObject), sizeof(__StaticArrayInitTypeSizeU3D2126_tC61DAB860216855A5A0F82865E9DE7CC955C35C8), 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize5946 = { sizeof(__StaticArrayInitTypeSizeU3D2166_tADAA4E0A509B281F41434482F1FB9A5E719DE787)+ sizeof(RuntimeObject), sizeof(__StaticArrayInitTypeSizeU3D2166_tADAA4E0A509B281F41434482F1FB9A5E719DE787), 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5947;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize5947 = { sizeof(U3CPrivateImplementationDetailsU3E_t0F5473E849A5A5185A9F4C5246F0C32816C49FCA), -1, sizeof(U3CPrivateImplementationDetailsU3E_t0F5473E849A5A5185A9F4C5246F0C32816C49FCA_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize5948;

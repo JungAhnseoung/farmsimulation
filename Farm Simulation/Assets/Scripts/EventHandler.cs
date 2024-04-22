@@ -53,6 +53,13 @@ public static class EventHandler
 
     public static event Action<int> LostCoinEvent;
 
+    public static event Action AnimalItemDropEvent;
+
+
+    public static void CallAnimalItemDropEvent()
+    {
+        if (AnimalItemDropEvent != null) AnimalItemDropEvent();
+    }
     public static void CallSeasonPass(Season season, int year, int day, string weekDay, int hour, int min, int sec)
     {
         if (SeasonPass != null) SeasonPass(season, year, day, weekDay, hour, min, sec);

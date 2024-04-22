@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AnimalManager
     - AnimationAttribute
     - AnimationOverride
     - AnimationParameterController
@@ -10,7 +11,6 @@ ScriptsOnlyBuild:
     - ChestSlot
     - ChestUI
     - Cloud
-    - Door
     - EatUI
     - EffectManager
     - GUIDGenerator
@@ -67,6 +67,7 @@ ScriptsOnlyBuild:
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridBrushEditor
+    - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -144,7 +145,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateMachineNode
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
@@ -482,59 +482,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 25136}
     - Class: 114
-      Script: {instanceID: 25746}
+      Script: {instanceID: 25748}
     - Class: 114
-      Script: {instanceID: 25768}
+      Script: {instanceID: 25770}
     - Class: 114
-      Script: {instanceID: 25814}
+      Script: {instanceID: 25816}
     - Class: 114
-      Script: {instanceID: 25998}
+      Script: {instanceID: 26000}
     - Class: 114
-      Script: {instanceID: 26002}
+      Script: {instanceID: 26004}
     - Class: 114
-      Script: {instanceID: 26260}
+      Script: {instanceID: 26262}
     - Class: 114
-      Script: {instanceID: 26328}
+      Script: {instanceID: 26330}
     - Class: 114
-      Script: {instanceID: 26446}
+      Script: {instanceID: 26448}
     - Class: 114
-      Script: {instanceID: 26578}
+      Script: {instanceID: 26580}
     - Class: 114
-      Script: {instanceID: 26698}
+      Script: {instanceID: 26700}
     - Class: 114
-      Script: {instanceID: 26724}
+      Script: {instanceID: 26726}
     - Class: 114
-      Script: {instanceID: 26774}
+      Script: {instanceID: 26776}
     - Class: 114
-      Script: {instanceID: 26784}
+      Script: {instanceID: 26786}
     - Class: 114
-      Script: {instanceID: 26820}
+      Script: {instanceID: 26822}
     - Class: 114
-      Script: {instanceID: 26868}
+      Script: {instanceID: 26870}
     - Class: 114
-      Script: {instanceID: 26910}
+      Script: {instanceID: 26912}
     - Class: 114
-      Script: {instanceID: 26984}
+      Script: {instanceID: 26986}
     - Class: 114
-      Script: {instanceID: 27014}
+      Script: {instanceID: 27016}
     - Class: 114
-      Script: {instanceID: 27132}
+      Script: {instanceID: 27134}
     - Class: 114
-      Script: {instanceID: 27230}
+      Script: {instanceID: 27232}
     - Class: 114
-      Script: {instanceID: 27402}
+      Script: {instanceID: 27404}
     - Class: 114
-      Script: {instanceID: 27464}
+      Script: {instanceID: 27466}
     - Class: 114
-      Script: {instanceID: 27658}
+      Script: {instanceID: 27660}
     - Class: 114
-      Script: {instanceID: 27698}
+      Script: {instanceID: 27700}
     - Class: 114
-      Script: {instanceID: 28090}
+      Script: {instanceID: 28092}
     - Class: 114
-      Script: {instanceID: 28192}
+      Script: {instanceID: 28194}
     - Class: 114
-      Script: {instanceID: 28244}
+      Script: {instanceID: 28246}
+    - Class: 114
+      Script: {instanceID: 90554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -615,17 +617,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 24326}
     - Class: 114
-      Script: {instanceID: 25712}
+      Script: {instanceID: 25466}
     - Class: 114
-      Script: {instanceID: 25814}
+      Script: {instanceID: 25714}
     - Class: 114
-      Script: {instanceID: 26336}
+      Script: {instanceID: 25816}
     - Class: 114
-      Script: {instanceID: 26478}
+      Script: {instanceID: 26480}
     - Class: 114
-      Script: {instanceID: 27892}
-    - Class: 114
-      Script: {instanceID: 106694}
+      Script: {instanceID: 27894}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -712,17 +712,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 25436}
     - Class: 114
-      Script: {instanceID: 25712}
+      Script: {instanceID: 25466}
     - Class: 114
-      Script: {instanceID: 25814}
+      Script: {instanceID: 25714}
     - Class: 114
-      Script: {instanceID: 26478}
+      Script: {instanceID: 25816}
     - Class: 114
-      Script: {instanceID: 26784}
+      Script: {instanceID: 26480}
     - Class: 114
-      Script: {instanceID: 28102}
+      Script: {instanceID: 26786}
     - Class: 114
-      Script: {instanceID: 106694}
+      Script: {instanceID: 28104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -797,13 +797,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 23744}
     - Class: 114
-      Script: {instanceID: 25712}
+      Script: {instanceID: 25714}
     - Class: 114
-      Script: {instanceID: 25814}
+      Script: {instanceID: 25816}
     - Class: 114
-      Script: {instanceID: 25960}
+      Script: {instanceID: 25962}
     - Class: 114
-      Script: {instanceID: 26478}
+      Script: {instanceID: 26480}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -969,7 +969,7 @@ ScriptsOnlyBuild:
     className: UnityOnDropMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 6779952c72b95b941e2db0f9283402ee
+      Hash: b56be0f4346a9e4bd9a7a4ddb5bb4fdb
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InventorySlot
@@ -999,7 +999,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggle
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: 31595d401258c95468eee90a6751c1ce
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Animal
@@ -1185,7 +1185,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerContainer
   - hash:
       serializedVersion: 2
-      Hash: 641c99a72b9ea09e945dbdd0c3325340
+      Hash: fe65a62993745e6a233dc02c2e8ddc34
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InventoryOpenSlot
@@ -1929,7 +1929,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 76cfc971340aeeeabb639e6b7a7c4c8f
+      Hash: 4c9b628921cf3ba9602980217a42a036
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Item
@@ -2085,7 +2085,7 @@ ScriptsOnlyBuild:
     className: SceneChange
   - hash:
       serializedVersion: 2
-      Hash: 2443deeabac7a507a531f2a1d6cf6741
+      Hash: a31779796fae7d2b5e56057c2f1c0df1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ChestSlot
@@ -2440,6 +2440,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Cloud
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: SceneVariables
@@ -2655,7 +2661,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerCanvas
   - hash:
       serializedVersion: 2
-      Hash: aa9d2b44faf6596f6f592bb2211b195e
+      Hash: 79066f1743b63391d6d2915396229073
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ItemList
@@ -2871,7 +2877,7 @@ ScriptsOnlyBuild:
     className: ItemSave
   - hash:
       serializedVersion: 2
-      Hash: 83c2498ed270eb3fa3c7aac249fc2edb
+      Hash: 5dbb7bdceaa8daf70e266f17c37165b9
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ShopItem
@@ -2916,7 +2922,7 @@ ScriptsOnlyBuild:
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: Cloud
+    className: AnimalManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/Base.unity

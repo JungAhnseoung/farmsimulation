@@ -21,17 +21,16 @@ public class Animal : MonoBehaviour
     
     private float speed = 2f;
     private bool isInAnimalZone = false;
-
     public int itemNo;
     
     private void OnEnable()
     {
-        EventHandler.DayPass += SpawnAnimalItem;
+        EventHandler.AnimalItemDropEvent += SpawnAnimalItem;
     }
 
     private void OnDisable()
     {
-        EventHandler.DayPass -= SpawnAnimalItem;
+        EventHandler.AnimalItemDropEvent -= SpawnAnimalItem;
     }
 
     void Start()
@@ -81,12 +80,13 @@ public class Animal : MonoBehaviour
         Physics2D.IgnoreCollision(playerBoxCollider, boxCollider);
     }
 
-    private void SpawnAnimalItem(Season season, int year, int day, string weekDay, int hour, int min, int sec)
+    private void SpawnAnimalItem()
     {
         if(isInAnimalZone)
         {
             if(itemNo == 1031) ItemSave.SpawnItemInScene(1001, new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), 0f));
             else if(itemNo == 1032) ItemSave.SpawnItemInScene(1009, new Vector3(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f), 0f));
+            AnimalManager.isItemReady = false;
         }
     }
 
